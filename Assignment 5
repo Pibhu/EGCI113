@@ -1,0 +1,20 @@
+// count 3
+#include <stdio.h>
+
+int main()
+{
+    int a;
+    int count;
+    count=0;
+    printf("enter number a:");
+    scanf("%d",&a);
+    
+    while(a>0){
+    if(a%10==3) count++;
+    a/=10;
+}
+
+printf("There are %d 3's in this number\n",count);
+
+    return 0;
+}
