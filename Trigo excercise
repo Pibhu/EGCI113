@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+float trigo (int, int);
+int
+main ()
+{
+
+  trigo (4, 3);
+
+
+
+  return 0;
+
+}
+
+
+
+float
+trigo (int x, int y)
+{
+
+  int n;
+
+  n = sqrt (pow (x, 2) + pow (y, 2));
+
+  printf ("root of %d^2+%d^2= %d", x, y, n);
+
+
+
+
+
+  return n;
+
+
+}
