@@ -9,7 +9,7 @@ int sum (int);
 
 
 int
-main (int argc, const char *argv[])
+main ()
 {
   int menu;
   int n, r;
@@ -30,17 +30,22 @@ main (int argc, const char *argv[])
 	{
 
 	case 1:
+	if(n<0){
+	    printf("Undefind\n");
+	    break;
+	}
 	  printf ("Your factorial (n!) is %ld\n", fact (n));
+	  
 	  break;
 
 	case 2:
 	  printf ("Input your 'r'");
 	  scanf ("%d", &r);
-	  printf ("Your %dC%d is %d", n, r, nCr (n, r));
+	  printf ("Your %dC%d is %d\n", n, r, nCr (n, r));
 	  break;
 
 	case 3:
-	  printf ("Your sumation(Sum(n)) is %d", sum (n));
+	  printf ("Your sumation(Sum(n)) is %d\n", sum (n));
 	  break;
 	default:
 	  break;
@@ -48,7 +53,7 @@ main (int argc, const char *argv[])
 	}
 
     }
-  while (menu < 4);
+  while (menu != 4);
 
   return 0;
 }
@@ -56,12 +61,12 @@ main (int argc, const char *argv[])
 long
 fact (int n)
 {				//long use with factorial
-  long f;			//n*(n-1)*(n-2)*(n-3)
-  f = 1;
+  long f =1;			//n*(n-1)*(n-2)*(n-3)
+  
 
-  for (; n > 0; n--)
+  for (; n >= 1; n--)
     {
-      f = f * n;
+      f = f * n;  
 
     }
   return f;
@@ -72,12 +77,14 @@ fact (int n)
 int
 nCr (int n, int r)
 {
-  int cnr;
+  int nCr;
 
+if (r<0 || n<0 || r>n){
+    return -1;
+}
+  nCr = (fact (n)) / (fact (r) * fact (n - r));
 
-  cnr = (fact (n)) / (fact (r) * fact (n - r));
-
-  return cnr;
+  return nCr;
 
 }
 
@@ -89,7 +96,7 @@ sum (int n)
 
   for (; n > 0; n--)
     {
-      s += n;
+      s = s + n;
 
     }
   return s;
@@ -99,11 +106,18 @@ sum (int n)
 void
 print_menu ()
 {
-
+  printf ("************************\n");
   printf ("What do you want to do ?\n");
   printf ("1.Find Factorial\n");
   printf ("2.Find Combinatorial number\n");
   printf ("3.Find Summation\n");
   printf ("4.Exist the Program\n");
+  printf ("Your choice?");
 
 }
+
+
+
+
+
+
