@@ -1,0 +1,2329 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define colsize 7
+#define rowsize 4
+#define SIZE 15
+#define radius 13
+void card_menu ();
+const float size = 5;
+void table();
+void full_name();
+void vowel();
+void consonants();
+int RandomNumber();
+void PrintNumber();
+void PrintRandomNumber(int);
+void PrintFortune(int);
+typedef struct birthday{
+int day;
+char month[50];
+int year;
+char zodiac[15];
+}Date;
+Date InputBirthday();
+Date FindZodiac(Date);
+void PrintZodiac(Date);
+void LoveLife(Date);
+void HealthHoroscope(Date);
+void Career(Date);
+void Finance(Date);
+int main()
+{
+    int n;
+
+    do
+    {
+    printf("1.Syamsi\n");
+    printf("2.Horoscope\n");
+    printf("3.Number Numerology\n");
+    printf("4.Tarot\n");
+    printf("5.Exit");
+    printf("\nInput:");
+    scanf("%d",&n);
+    switch(n)
+    {
+    case 1:
+    goto Cleanup;
+     Cleanup: ;
+    char enter = 'a';
+    printf("Welcome to Syamsi simulator\n");
+
+    printf("    ,\n");
+    printf("    ,,  ,,,,(  ,(,,(\n");
+    printf("    (,, ,(,,( ,,(,*(\n");
+    printf("    ((,,,(,*((,,(,((\n");
+    printf("    ((*,,(,(((,/,,((\n");
+    printf("    /((,,(,*((,/,,((\n");
+    printf("      ((,,(,*((,(,/(/\n");
+    printf("       (/,(,*((,(,((\n");
+    printf("       &((,/,*((,/,((&&\n");
+    printf("    %%#(*,,*((,,,((&&%%%%\n");
+    printf("    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n");
+    printf("    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n");
+    printf("    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n");
+    printf("    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n");
+    printf("    %%%%%%%%%%%%%%%%%%%%%%%%%%%#,%%%%%%%%\n");
+    printf("    %%,%%/%%%%#%%%%%%%%%%%%%%%*%(%%%%%\n");
+    printf("    %%%%%*#%%%%%%%%%%%%%%%*(%%%%%%%%%%%%%\n");
+    printf("    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n");
+    printf("    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n");
+    printf("    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n");
+    printf("    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n");
+    printf("    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n");
+    printf("    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n");
+    printf("    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n");
+    printf("    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n");
+    printf("    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n");
+    printf("    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n");
+
+    int shake = 1;
+    printf("\n");
+    PrintNumber();
+    char a;
+    char b[6];
+    printf("Press enter to shake the Syamsi can\n");
+    if(enter!='\n')
+        {
+            fgets(b,6,stdin);
+            while (enter!='\n')scanf("%c",&enter);
+        }
+    do{
+        int num = RandomNumber();
+
+        PrintRandomNumber(num);
+        printf("The number of shake is %d\n",shake++);
+        printf("Type 1 to read your fortune or press enter to shake again: ");
+        scanf("%c",&a);
+        if(a == '1')
+        {
+        PrintFortune(num);
+        break;
+        } else while (a!='\n') scanf("%c",&a);
+    }while(1);
+    break;
+
+    case 2:
+         printf("Welcome to your favorite horoscope app!\n");
+    printf("               @ @ @ @ @ @ \n");
+    printf("            @               @\n");
+    printf("          @                   @\n");
+    printf("        @                       @\n");
+    printf("       @                         @\n");
+    printf("                                   \n");
+    printf("       #                         @\n");
+    printf("       @                         @\n");
+    printf("        @                       @\n");
+    printf("          @                   @ \n");
+    printf("         @@@@@@@@@@@@@@@@@@@@@@@ \n");
+    printf("         @@@@@@@@@@@@@@@@@@@@@@@ \n");
+    printf("         @@@@@@@@@@@@@@@@@@@@@@@ \n");
+    printf("      @@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    printf("     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    printf("We will provide you the most accurate and compelling forecasts based on the day you were born\n");
+    printf("First, let us know your birthday\n");
+    Date birthday0;
+    birthday0=InputBirthday();
+    int choice;
+    char continueornot;
+    printf("- Perfect! Please choose 1 of the choices below to foretell your life in 2024 - \n");
+    while(1)
+    {
+      printf("1 - Love Horoscope\n");
+      printf("2 - Health and Fitness\n");
+      printf("3 - Career Horoscope\n");
+      printf("4 - Finance Horoscope\n");
+      printf("Choose : ");
+      scanf("%d",&choice);
+      if(choice>4||choice<1)
+      {
+          printf("Invalid choice! Choose again\n");
+          continue;
+      }
+
+      switch(choice)
+      {
+      case 1:
+        LoveLife(birthday0);
+        break;
+      case 2:
+        HealthHoroscope(birthday0);
+        break;
+      case 3:
+        Career(birthday0);
+        break;
+      case 4:
+        Finance(birthday0);
+        break;
+      default:
+        break;
+      }
+      while(1)
+      {
+      printf("Continue? (Y/N) : \n");
+      fflush(stdin);
+      continueornot=getchar();
+
+        if(continueornot=='Y'||continueornot=='N') break;
+
+        else
+        {
+           printf("Invalid Character! Please Enter Again\n");
+           continue;
+        }
+      }
+      if(continueornot=='Y')
+        {
+          continue;
+        }
+      else if(continueornot=='N')
+        {
+          printf("The end...Don't forget to make your own dreams come true!\n");
+          break;
+        }
+    break;
+      case 3:
+          goto cleanup;
+        cleanup: ;
+        char name[100];
+        table();
+        printf("\nEnter your full name:");
+        scanf("%s", name);
+        full_name(name);
+        vowel(name);
+        consonants(name);
+        printf("\n");
+         break;
+
+      case 4:
+          goto CLeanup;
+        CLeanup: ;
+        char card_name [30];
+
+    char Heart,heart;
+    char Triangle,triangle;
+    char Diamond,diamond;
+    char Square,square;
+    char Octagon,octagon;
+    char Arrow,arrow;
+    char Circle,circle;
+    char Hexagon,hexagon;
+    char Plus,plus;
+
+    char exist;
+
+    int count = 0;
+do {
+    printf("Message from the universe \n");
+    if(count==0)
+    {
+        card_menu();
+        count++;
+    }
+
+
+
+    printf ("Card Options\nHeart\nTriangle\nSquare\nDiamond\nCircle\nArrow\nPlus\nHexagon\nOctagon\n\nPick your card : ");
+    scanf("%s",card_name);
+
+
+
+ if (strcmp(card_name,"heart") == 0)
+    {
+        printf("Embrace Change: \n The winds of change are blowing\n urging you to let go of the old and welcome the new.\n"
+               "Embrace transformation with an open heart, for within change lies the seeds of growth and opportunity.\n");
+        break;
+    }
+else if (strcmp(card_name,"Heart") == 0)
+    {
+        printf("Embrace Change: \n The winds of change are blowing\n urging you to let go of the old and welcome the new.\n Embrace transformation with an open heart, for within change lies the seeds of growth and opportunity.\n");
+        break;
+    }
+else if (strcmp(card_name,"Triangle") == 0)
+    {
+    printf("Trust Your Intuition:\nDeep within, your intuition is a guiding light.\nTrust the whispers of your soul, and let your inner wisdom lead you on your journey. \nAnswers lie in the quiet moments of introspection.\n");
+    break;
+    }
+else if (strcmp(card_name,"triangle") == 0)
+    {
+         printf("Trust Your Intuition:\nDeep within, your intuition is a guiding light.\nTrust the whispers of your soul, and let your inner wisdom lead you on your journey. \nAnswers lie in the quiet moments of introspection.\n");
+        break;
+    }
+
+else if (strcmp(card_name,"Diamond") == 0)
+    {
+
+
+        printf("Cultivate Gratitude:\nGratitude is a powerful elixir for the soul.\nTake a moment to appreciate the blessings in your life.\nAs you cultivate gratitude, you attract even more reasons to be thankful.\n");
+        break;
+    }
+else if (strcmp(card_name,"diamond") == 0)
+    {
+        printf("Cultivate Gratitude:\nGratitude is a powerful elixir for the soul.\nTake a moment to appreciate the blessings in your life.\nAs you cultivate gratitude, you attract even more reasons to be thankful.\n");
+        break;
+    }
+else if (strcmp(card_name,"Octagon") == 0)
+    {
+    printf("Release Resentment:\nThe weight of resentment can anchor you to the past.\nRelease the grip of bitterness, forgive, and set yourself free.\n In forgiveness, you find liberation and healing.\n");
+    break;
+    }
+else if (strcmp(card_name,"octagon") == 0)
+    {
+        printf("Release Resentment:\nThe weight of resentment can anchor you to the past.\nRelease the grip of bitterness, forgive, and set yourself free.\n In forgiveness, you find liberation and healing.\n");
+        break;
+    }
+else if (strcmp(card_name, "Square") == 0)
+    {
+            printf("Nurture Self-Love:\nYou are a masterpiece of existence.\n Nurture a deep and unconditional love for yourself.\nEmbrace your flaws and strengths alike, for within self-love, you discover your true beauty.\n");
+            break;
+    }
+else if (strcmp(card_name,"square") == 0)
+    {
+        printf("Nurture Self-Love:\nYou are a masterpiece of existence.\n Nurture a deep and unconditional love for yourself.\nEmbrace your flaws and strengths alike, for within self-love, you discover your true beauty.\n");
+        break;
+    }
+else if (strcmp(card_name,"Plus") == 0)
+    {
+        printf("Follow Your Bliss:\nListen to the whispers of joy within your heart.\nFollow your passions and pursue what brings you alive.\nIn the dance of bliss, you uncover the path to fulfillment.\n");
+        break;
+    }
+else if (strcmp(card_name,"plus") == 0)
+    {
+     printf("Follow Your Bliss:\nListen to the whispers of joy within your heart.\nFollow your passions and pursue what brings you alive.\nIn the dance of bliss, you uncover the path to fulfillment.\n");
+     break;
+    }
+else if (strcmp(card_name,"Hexagon") == 0)
+    {
+    printf("Connect with Nature:\nNature is a sacred mirror reflecting the beauty of your soul.\nSpend time in the embrace of the natural world.\nAs you connect with the earth, you find harmony and balance.\n");
+    break;
+    }
+else if (strcmp(card_name,"hexagon") == 0)
+    {
+    printf("Connect with Nature:\nNature is a sacred mirror reflecting the beauty of your soul.\nSpend time in the embrace of the natural world.\nAs you connect with the earth, you find harmony and balance.\n");
+    break;
+    }
+else if (strcmp(card_name,"Circle") == 0)
+    {
+     printf("Seek Balance:\nLife is a delicate dance of balance.\nAttend to the needs of your mind, body, and spirit.\nFind equilibrium in your daily pursuits, and harmony will unfold.\n");
+     break;
+    }
+else if (strcmp(card_name,"circle") == 0)
+    {
+     printf("Seek Balance:\nLife is a delicate dance of balance.\nAttend to the needs of your mind, body, and spirit.\nFind equilibrium in your daily pursuits, and harmony will unfold.\n");
+     break;
+    }
+else if (strcmp(card_name,"Arrow") == 0)
+    {
+        printf("Embrace Patience:\nPatience is a virtue that unfolds the petals of destiny.\nTrust in divine timing and allow the universe to work its magic.\nIn patience, you find the wisdom to navigate the journey ahead.\n");
+        break;
+    }
+else if (strcmp(card_name,"arrow") == 0)
+    {
+        printf("Embrace Patience:\nPatience is a virtue that unfolds the petals of destiny.\nTrust in divine timing and allow the universe to work its magic.\nIn patience, you find the wisdom to navigate the journey ahead.\n");
+        break;
+    }
+else
+   {
+        printf("Invalid choice\n");
+        continue;
+    }
+
+
+
+} while(1);
+break;
+    }
+    }
+
+}while(n!=5);
+}
+int RandomNumber()
+{
+    int num = rand() % 28 + 1; // use rand() function to get the random number
+    return num;
+}
+void PrintNumber()
+{
+    int count = 0;
+    int a[rowsize][colsize];
+    for(int i = 0;i<rowsize;i++)
+    {
+        for(int j = 0;j<colsize;j++)
+        {
+           a[i][j] = ++count;
+           printf("%4d",a[i][j]);
+        }
+        printf("\n");
+    }
+}
+void PrintRandomNumber(int num)
+{
+    int count = 0;
+    int a[rowsize][colsize];
+    for(int i = 0;i<rowsize;i++)
+    {
+        for(int j = 0;j<colsize;j++)
+        {
+            a[i][j] = ++count;
+            if(count==num) printf("%4d",a[i][j]);
+            else printf("%4s","*");
+        }
+        printf("\n");
+    }
+}
+void PrintFortune(int num)
+{
+            switch(num)
+            {
+            case 1:
+            printf("Leaf Number One - The Fortune of Aspirations\n"
+            "It is foretold that someone is seeking enlightenment, wishing to achieve what they have set in their hearts.\n"
+            "Success may be on the horizon, but it will come slowly. It is only with patience that true serenity will be found.\n"
+            "As for your companions, those blessed by virtue and grace, they will experience peacefulness and happiness every month of the year. \n"
+            "If you inquire about health, it appears that ailments will be light and fleeting, almost as if they were never there.\n"
+            "Inquiring about debts owed to siblings and relatives, it is likely that they will be settled, just like a passing greeting.\n"
+            "And if you seek guidance on matters of destiny with gentle words,\n"
+            "it may take time, but your thoughts will eventually bring laughter.\n"
+            "If you inquire about finding a suitable partner, it seems as though destiny is leading the way.\n"
+            "This concludes the first leaf, filled with joyous anticipation.");
+            break;
+            case 2:
+            printf("Leaf Number Two - Unity Like the Moon's Radiance\n"
+            "It is likened to a tree in spring, seemingly withered and then miraculously regenerating, just as it always has.\n"
+            "It blooms with bright flowers and leaves, glistening with dew and the gentle caress of the breeze,\n"
+            "like an old windowpane from days gone by.\n"
+            "A little polishing is needed to reveal its true beauty.\n"
+            "If you plan to undertake any endeavor together, do so with mutual understanding and respect.\n"
+            "Find harmony and make agreements. Your spirits will align, and success will follow suit.\n"
+            "For those inquiring about illnesses, it appears that relief is on the horizon.\n"
+            "When asking about debts owed to companions and friends, it seems you will encounter them.\n"
+            "If you seek guidance on relationships, it signifies a harmonious outcome.\n"
+            "And as for seeking fortune, it seems favorable.\n"
+            "This concludes the second leaf, filled with radiant unity.\n");
+            break;
+            case 3:
+            printf("Leaf Number Three - Facing Hardships\n"
+            "Hardships are looming, and it seems that any endeavor you undertake may lead to illness and frustration. \n"
+            "There are those who harbor ill intentions, and troubles abound. \n"
+            "You may find yourself unable to eat or sleep well, constantly weighed down by sorrow. Joy seems almost unattainable.\n"
+            "However, when it comes to matters of mutual understanding, there is room for compromise.\n"
+            "You can endure and overcome these challenges. Finding someone to help or seeking assistance won't be too difficult.\n"
+            "As for debts that have been long overdue, it appears that they have not been settled yet.\n"
+            "Seeking fortune in this period may be physically taxing.\n"
+            "When it comes to relationships, it might not be as harmonious as you wish.\n"
+            "It's advisable to maintain a sense of calm and patience.\n"
+            "This concludes the third leaf, marked by its challenges.\n");
+            break;
+            case 4:
+            printf("Leaf Number Four - Distant Companions\n"
+            "This leaf reveals that your companion is far away, and you do not know when you will meet again, \n"
+            "much like chicks from the same flock scattered on separate journeys.\n"
+            "One must venture far before eventually reuniting. It may take quite some time,\n"
+            "but when you do reunite, it will be a moment of great joy, bringing happiness and fortune.\n"
+            "If you plan to undertake any endeavor together, do so with a willing heart.\n"
+            "However, the outcome of that endeavor is written in the stars; do not rush forward, and beware of potential dangers.\n"
+            "Like the moon obscured by clouds, its radiant light temporarily hidden,\n"
+            "inquiring about the health of the sick will reveal eventual recovery of the spirit.\n"
+            "When seeking guidance on matters of fate, victory is assured; do not doubt it.\n"
+            "Even if you ask about someone who is currently distant or in hiding, it seems you have not yet crossed paths.\n"
+            "When inquiring about a beloved child in the womb, it is likely that you will see a son.\n"
+            "This concludes the fourth leaf, filled with anticipation and hope.\n");
+            break;
+            case 5:
+            printf("Leaf Number Five - Preserved in Writing\n"
+            "This leaf suggests that what is written down is safe from harm,\n"
+            "and there is no one who can bring sorrow or suffering upon you.\n"
+            "If, by chance, love leads you to someone else's possessions, your own belongings may have to be separated from their place.\n"
+            "If you wish to associate with someone, do so with caution, adhering to traditional values, \n"
+            "and do not take matters lightly.\n"
+            "Even if you inquire about a distant companion, it seems that the connection has not yet been established.\n"
+            "Keep your thoughts to yourself.\n"
+            "When it comes to debts owed, if someone has retreated into the depths of their heart, you may not find them easily.\n"
+            "Seeking fortune during this time may be challenging, and you may encounter difficulties.\n"
+            "It's essential to remain patient and adaptable.\n"
+            "As for inquiring about a beloved child in the womb, the number five signifies a female.\n"
+            "This concludes the fifth leaf, emphasizing the importance of caution and preservation.");
+            break;
+            case 6:
+            printf("Leaf Number Six - Doubts in the Mind\n"
+            "This leaf indicates that doubts and suspicions may cloud your thoughts,\n"
+            "but it advises against harboring ill intentions or attempting to deceive others.\n"
+            "Although it may take time, eventually, your mind will find peace.\n"
+            "At this moment, it seems that deceitful actions will not lead to success.\n"
+            "Worries may come and go, causing restlessness and unease,\n"
+            "but even inquiring about fortune during this time may not yield favorable results.\n"
+            "It's essential to maintain composure and not become anxious.\n"
+            "When asking about fortune, it appears that you may encounter your debts and find prosperity.\n"
+            "However, you should not expect too much. This leaf holds true and sincere advice for all matters.\n"
+            "Even those who are ill will eventually recover, and their minds will find solace.\n"
+            "It suggests that your thoughts will bring happiness and well-being.\n"
+            "When inquiring about relationships, this leaf indicates positive prospects.\n"
+            "This concludes the sixth leaf, offering earnest advice and encouragement.");
+            break;
+            case 7:
+            printf("Leaf Number Seven - Suffering Leads to Joy\n"
+            "This leaf suggests that all sorrows will eventually transform into happiness.\n"
+            "Your family, friends, and companions will be pleased with your accomplishments.\n"
+            "However, at the moment, there may be some lingering resentment or confusion.\n"
+            "Engage in acts of merit with a pure heart, and your thoughts will be aligned with goodness.\n"
+            "Avoid excessive flattery and manipulation, as it may lead to difficulties.\n"
+            "Listening to different opinions and engaging in discussions will be beneficial,\n"
+            "much like planting fruit trees near your home, ensuring contentment in all aspects of life.\n"
+            "When inquiring about fortune, this leaf indicates positive prospects.\n"
+            "If you've lost something, it's likely to be recovered. In matters of relationships, it signifies favorable outcomes.\n"
+            "Even inquiring about someone who is unwell suggests a return to well-being.\n"
+            "In general, things seem to be going well in this seventh leaf, and happiness is within reach.");
+            break;
+            case 8:
+            printf("Leaf Number Eight - Change and Challenges\n"
+            "This leaf indicates that change is on the horizon, and although it may bring success,\n"
+            "it will come as a secondary source of happiness.\n"
+            "It's akin to a golden-rooted tree in a dry season, where some parts must be sacrificed for survival. \n"
+            "Currently, conditions are challenging, much like a period of drought.\n"
+            "To see results in inquiries or endeavors, you must make a change and relocate.\n"
+            "When asking about lost items, it may prove difficult to recover them. \n"
+            "In matters of relationships, it's not advisable to engage in disputes,\n"
+            "as success will be hard to achieve, and retreat may be necessary.\n"
+            "Seeking fortune during this time may not yield favorable outcomes.\n"
+            "This eighth leaf signifies a challenging period with limited prospects.\n"
+            "This concludes the eighth leaf, advising caution and preparedness for the changes and challenges ahead.");
+            break;
+            case 9:
+            printf("Leaf Number Nine - Facing Challenges with Transformation\n"
+            "This leaf tells of inner conflict and challenges, akin to a transformation into a dragon, much like it was in the past.\n"
+            "Thinking about seeking fortune through various methods, the directions and paths are clear 暴n"
+            "what goes well comes well, and it's a time of clarity.\n"
+            "It's comparable to a sailor navigating the winds during a dry season, destined to thrive and succeed.\n"
+            "Just as dragons and serpents know how to adapt, like the changing tides of a river, it signifies transformation.\n"
+            "When asking about someone who has gone away, it seems that you will meet them again.\n"
+            "In matters of love, it suggests that the connection has not yet been established.\n"
+            "Inquiring about someone who is unwell, they may not be completely honest about their condition.\n"
+            "Seeking fortune during this time is likely to yield positive outcomes.\n"
+            "This ninth leaf encourages persistence and effort in pursuing your desires and suggests that things will turn out well.");
+            break;
+            case 10:
+            printf("Leaf Number Ten - Ups and Downs, Like a Dream\n"
+            "This leaf suggests that life's journey is like grasping at shadows, as if you were in a dream.\n"
+            "Communicating may be challenging, and the future remains uncertain.\n"
+            "It's as if every day is a blend of life and death, with both joy and sorrow.\n"
+            "If you inquire about a child in the womb, it appears that it will be a girl.\n"
+            "When asking about lost items, it may be challenging to recover them.\n"
+            "But if you ask about someone who is unwell, they will likely find relief.\n"
+            "In matters of love and relationships, this leaf indicates positive outcomes and a harmonious connection.\n"
+            "However, seeking fortune during this time may prove to be challenging.\n"
+            "This tenth leaf encourages you to navigate the ups and downs of life with resilience,\n"
+            "as it's akin to experiencing a dream that can be both beautiful and challenging.");
+            break;
+            case 11:
+            printf("Leaf Number Eleven - Like the Moon's Glow\n"
+            "This leaf resembles the moon's radiance, with clouds sometimes obscuring it closely.\n"
+            "However, it eventually emerges, shining as brilliantly as before, as natural as it has always been.\n"
+            "Whatever you do, you will receive in proportion to your efforts, without accumulating excess.\n"
+            "On the front side, it signifies good fortune.\n"
+            "Even if there have been misunderstandings or conflicts between family members, they will likely be resolved.\n"
+            "Whatever you undertake or inquire about, you are likely to find success and harmony.\n"
+            "When asking about your partner, it suggests happiness and contentment.\n"
+            "Inquiring about debts owed to siblings and relatives indicates a willingness to compromise and a harmonious outcome.\n"
+            "Seeking fortune during this time is likely to yield positive results.\n"
+            "This eleventh leaf signifies a period of abundance and success, akin to the lustrous glow of the moon.\n"
+            "It encourages you to be modest and prepared for the blessings that are on the horizon.");
+            break;
+            case 12:
+            printf("Leaf Number Twelve - A Leader and a Follower\n"
+            "This leaf depicts one person leading while another follows, like a pair trying to navigate the river of the heart.\n"
+            "Communication is challenging, and it's as if someone is seeking enlightenment, \n"
+            "uttering words that sound like dreams when they disappear, leaving one's heart in turmoil.\n"
+            "advises against aimless wandering and not engaging in actions that lack purpose.\n"
+            "When inquiring about relationships, it suggests potential conflicts or misunderstandings.\n"
+            "Seeking fortune during this time may not yield clear answers.\n"
+            "This twelfth leaf indicates a period of uncertainty and challenges in communication.\n"
+            "It suggests the importance of clear and honest communication with friends and loved ones.\n"
+            "When asking about finding a partner, it may indicate difficulties or conflicts.\n"
+            "Inquiring about fortune may not yield favorable results.\n"
+            "This leaf encourages you to be patient and mindful in your interactions,\n"
+            "as communication is key to resolving any conflicts or misunderstandings.");
+            break;
+            case 13:
+            printf("Leaf Number Thirteen - Resembling a Tree\n"
+            "This leaf likens itself to a tree that has yet to bear fruit or produce results,\n"
+            "similar to a tree facing drought and needing to hide itself.\n"
+            "Even without rain, it has not yet withered.\n"
+            "Avoid being like dew in the middle of a field, disappearing after a short while. Do not harbor resentment or let it go far. \n"
+            "Instead, wait patiently and listen to wise words.\n"
+            "When it comes to your endeavors, think carefully about your actions to avoid causing anger or resentment.\n"
+            "Inquiring about a child in the womb suggests that it is not yet time for their arrival.\n"
+            "When asking about family members, siblings, or relatives, it indicates favorable outcomes.\n"
+            "Seeking fortune during this time is likely to yield positive results.\n"
+            "This thirteenth leaf advises you to be patient and not rush your actions, as success and fruition will come in their own time.");
+            break;
+            case 14:
+            printf("Leaf Number Fourteen - Resembling Heaven and Earth\n"
+            "This leaf is like the heavens and the earth, with various differences and misunderstandings.\n"
+            "Seeking someone may be accidental, like trying to see through a blindfold.\n"
+            "When calling out, it may echo back, urging us to think and consider before taking action.\n"
+            "Things are not yet clear and certain, much like being caught in a whirlpool of thoughts\n"
+            "and emotions that do not align with your intentions.\n"
+            "When it comes to your partner, it indicates challenges, and it may not be advisable to rush things.\n"
+            "Inquiring about someone who is unwell suggests that they will find relief.\n"
+            "Asking about friends, siblings, or debts indicates favorable outcomes and a harmonious resolution.\n"
+            "Seeking fortune during this time may not yield positive results, and it's advised to be patient and considerate in your actions.\n"
+            "This fourteenth leaf advises you to be patient and cautious in your endeavors,\n"
+            "as there may be misunderstandings and uncertainties to navigate.");
+            break;
+            case 15:
+            printf("Leaf Number Fifteen - Engraved in Letters\n"
+            "This leaf suggests that whatever endeavor you undertake, it will not face obstacles.\n"
+            "Like-minded individuals will gather, fostering a sense of unity.\n"
+            "Engaging in trade or business will be successful and prosperous.\n"
+            "When inquiring about children, it indicates the presence of a son.\n"
+            "Asking about a partner suggests praise and admiration, signifying a harmonious relationship.\n"
+            "Inquiring about lost items indicates their recovery.\n"
+            "Seeking fortune during this time will yield positive results.\n"
+            "This fifteenth leaf signifies a period of ease and prosperity in various aspects of life.\n"
+            "It encourages you to pursue your endeavors with confidence,\n"
+            "as they are likely to be successful and bring happiness.\n"
+            "If anyone asks about this leaf, it signifies a favorable and harmonious outcome, leading to contentment and joy.");
+            break;
+            case 16:
+            printf("Leaf Number Sixteen - Positive Sentiments\n"
+            "This leaf signifies a positive and harmonious disposition.\n"
+            "You are likely to encounter individuals who are dedicated to their spiritual practices and virtuous deeds.\n"
+            "They carry themselves with kindness and a good heart, \n"
+            "and this disposition will lead to long-lasting happiness and prosperity.\n"
+            "During this time, there will be no major sorrows or worries to trouble your mind.\n"
+            "Your desires and aspirations are likely to be fulfilled, similar to the predictions.\n"
+            "Inquiring about someone who is unwell suggests that they will recover.\n"
+            "Asking about your partner indicates a harmonious and favorable relationship.\n"
+            "Seeking fortune during this period is likely to yield positive results.\n"
+            "This sixteenth leaf advises you to remain virtuous and maintain a positive outlook on life, \n"
+            "as it will bring you happiness and prosperity.\n"
+            "Even if challenges arise, you will be able to overcome them with grace and success.\n"
+            "If anyone asks about this leaf, it signifies favorable outcomes and\n"
+            "the potential for a harmonious and virtuous life.");
+            break;
+            case 17:
+            printf("Leaf Number Seventeen - Unfinished Business\n"
+            "This leaf suggests that there may be unresolved matters or unfulfilled intentions, much like a wandering mind.\n"
+            "Thoughts and actions may seem scattered and chaotic, causing apprehension and unease.\n"
+            "It is essential to be cautious and avoid rushing into things without careful consideration.\n"
+            "Fearing misfortune, some may be tempted to take hasty actions, but it is advisable to remain composed and act judiciously.\n"
+            "By doing so, you can eventually achieve clarity and experience joy and contentment.\n"
+            "This seventeenth leaf advises you to be diligent and conscientious in your endeavors.\n"
+            "Avoid rash decisions and impulsive actions, as they may lead to unfavorable outcomes.\n"
+            "When inquiring about someone who is unwell, they are likely to recover.\n"
+            "However, seeking resolution for unfinished matters or asking about friendships and debts may not yield positive results.\n"
+            "Nevertheless, when inquiring about fortune, it is expected to be favorable.\n"
+            "In summary, this leaf suggests that there may be unfinished business or uncertainties in your life.\n"
+            "Approach situations with patience and caution, and clarity will eventually prevail.");
+            break;
+            case 18:
+            printf("Leaf Number Eighteen - Wealth Amidst Hardship\n"
+            "In the realm of fortune, this leaf foretells a union of riches with adversity,\n"
+            "much like discovering treasure embedded within a stone.\n"
+            "It signifies a journey filled with challenges, where illness and setbacks may test one's resolve.\n"
+            "The path ahead may seem as arduous as navigating a boat against a turbulent wind.\n"
+            "When seeking prosperity, one may encounter obstacles and hardships, but enduring patience is key.\n"
+            "Long-lasting abundance may require you to extend a helping hand to those in need.\n"
+            "Inquiring about someone's health may reveal not just physical well-being but the state of their inner peace.\n"
+            "Questions seeking guidance or resolutions may necessitate careful consideration, as the outlook may not be favorable.\n"
+            "Similarly, inquiring about the gender of an unborn child, as indicated by this leaf, may yield uncertain outcomes.\n"
+            "Those who obtain this leaf should approach it with unwavering optimism and a resolute mindset.\n"
+            "May this interpretation provide clarity in your journey.\n"
+            "The path may be challenging, but the destination promises treasure beyond measure.\n"
+            "This concludes the fortune-telling message for Leaf Number Eighteen. \n"
+            "May you journey forth with determination and discover the hidden treasures of life.");
+            break;
+            case 19:
+            printf("Leaf Number Nineteen - The Best of Times\n"
+            "In the realm of fortune, this leaf radiates with the promise of splendid moments and favorable circumstances.\n"
+            "It signifies a period of auspiciousness when everything aligns to perfection.\n"
+            "This leaf encourages you to pause, reflect, and savor each moment, for the best is yet to come.\n"
+            "Embrace patience and proceed at a steady pace, for this leaf foretells that your endeavors will yield fruitful results.\n"
+            "Like a tree that matures with age, you too will grow wiser and more content with time.\n"
+            "When inquiring about well-being, it signifies not only physical health but the harmony of the spirit.\n"
+            "Questions about your fortune and abundance may bring forth a sense of rejuvenation and happiness.\n"
+            "Seek wisdom rather than recklessness, as this leaf advises against hasty decisions.\n"
+            "In your quest to discover the whereabouts of someone, remember that not all journeys lead to the desired destination.\n"
+            "Trust your instincts and follow your heart.\n"
+            "This concludes the fortune-telling message for Leaf Number Nineteen.\n"
+            "May you cherish the moments of excellence that lie ahead and navigate life with wisdom and patience.");
+            break;
+            case 20:
+            printf("Leaf Number Twenty - The Unpredictable Path\n"
+            "This leaf signifies a twist in the journey of life, where straight paths may seem crooked, and certainty may waver.\n"
+            "While some aspects remain stable, others may take unexpected turns. \n"
+            "It is crucial to exercise caution and maintain your composure in unfamiliar territory.\n"
+            "Be vigilant in your choices and actions as you navigate through unfamiliar terrain, for not all who claim to be allies can be trusted.\n"
+            "Those who seek this leaf for guidance should be prepared to confront challenges and uncertainties.\n"
+            "To gain clarity and insight, you must first face your inner conflicts and dilemmas, much like searching for hidden truths beneath the surface.\n"
+            "Seek guidance and solace from higher powers and divine intervention.\n"
+            "In matters of health, this leaf suggests that even when physical ailments subside, inner peace and mental well-being must also be addressed.\n"
+            "While inquiring about your fortune may not yield concrete results, seeking wisdom and inner strength is advisable.\n"
+            "Asking about missing persons or debts may not provide straightforward answers,\n"
+            "but this leaf encourages seeking solace in the steadfastness of your beliefs.\n"
+            "In conclusion, Leaf Number Twenty signifies a period of unpredictability and challenges.\n"
+            "Approach this phase with caution, and you may find that inner strength and divine guidance will light your way.");
+            break;
+            case 21:
+            printf("Leaf Number Twenty-One - Navigating the Uncharted\n"
+            "This leaf symbolizes a journey through uncharted territory, much like climbing a steep mountain.\n"
+            "It suggests that while there may be challenges and obstacles ahead, the sun's rays will eventually illuminate your path.\n"
+            "Despite the twists and turns you encounter, remain resilient and steadfast like a bird learning to fly against the wind.\n"
+            "Though the journey may be arduous and filled with unexpected turbulence, brighter days await you.\n"
+            "You will find moments of serenity and appreciation as you face each challenge with courage.\n"
+            "When inquiring about someone's health, this leaf indicates a gradual improvement in their condition, offering relief and hope.\n"
+            "In the realm of friendships and relationships, distance may separate you, but the bond remains strong, and reunions will bring joy.\n"
+            "Challenges may arise, but they can be overcome with perseverance and faith.\n"
+            "Even in uncertainty, this leaf assures you that blessings will eventually come your way. \n"
+            "Seek solace in the knowledge that your endeavors will be rewarded, and you will experience happiness and fulfillment.\n"
+            "In summary, Leaf Number Twenty-One represents a challenging journey with moments of enlightenment and serenity.\n"
+            "Trust in your resilience and unwavering spirit, as brighter days and joyful reunions await you.");
+            break;
+            case 22:
+            printf("Leaf Number Twenty-Two - Seeking Guidance\n"
+            "This leaf suggests the importance of seeking guidance and counsel before taking any significant actions or decisions.\n"
+            "It emphasizes the need to consult with others who can provide insight and direction, \n"
+            "much like navigating a complex terrain with the help of a guide.\n"
+            "Approaching life's challenges without rushing and without carrying unnecessary burdens is advised.\n"
+            "It encourages you to hold onto ancient wisdom and traditional values, as they can guide you towards favorable outcomes.\n"
+            "When inquiring about someone who is unwell, their condition is likely to improve gradually, bringing relief and happiness.\n"
+            "However, when seeking solutions to personal matters or asking about your fortune, it may not yield the desired results.\n"
+            "Nevertheless, when seeking advice or guidance from those with wisdom and experience, \n"
+            "you can expect valuable insights and a path towards success.\n"
+            "In summary, Leaf Number Twenty-Two underscores the importance of seeking guidance and wisdom when facing significant decisions.\n"
+            "While the path may not always be straightforward, consulting with others will lead to valuable insights and favorable outcomes.");
+            break;
+            case 23:
+            printf("Leaf Number Twenty-Three - Abundant Blessing\n"
+            "This leaf signifies a period of abundant blessings and happiness.\n"
+            "It suggests that whoever seeks guidance or inquires about their fortune will find joy and contentment,\n"
+            "much like experiencing happiness throughout the entire month.\n"
+            "The presence of fortune and good luck will accompany you on your journey, allowing you to move forward with ease and comfort.\n"
+            "Your desires and intentions will be fulfilled, and your positive mindset will lead to favorable outcomes.\n"
+            "When inquiring about any matter, whether it's seeking advice or asking about someone's well-being, you can expect positive results.\n"
+            "Even when considering legal matters or personal affairs, success is highly likely.\n"
+            "In summary, Leaf Number Twenty-Three symbolizes a time of great blessings and happiness. \n"
+            "Your path is filled with good fortune, and any inquiries or endeavors are expected to yield positive outcomes.\n"
+            "Embrace this period of abundance and move forward with confidence.");
+            break;
+            case 24:
+            printf("Leaf Number Twenty-Four - Distant Glimpse\n"
+            "This leaf suggests that what you seek or desire may appear distant or elusive, much like a fleeting glimpse.\n"
+            "However, with a little more effort and patience, you can attain a sense of fulfillment and contentment.\n"
+            "The golden horse on the horizon symbolizes the potential to encounter someone of great virtue and honor.\n"
+            "This person may offer valuable guidance or support, leading to positive outcomes.\n"
+            "Keep your intentions and thoughts noble and virtuous, as they are likely to manifest in reality.\n"
+            "When inquiring about illnesses, relief and recovery are likely.\n"
+            "Asking about destinations or future plans will yield favorable results.\n"
+            "Seeking advice or inquiring about good fortune will be met with positive outcomes.\n"
+            "In summary, Leaf Number Twenty-Four suggests that your desires may appear distant,\n"
+            "but with perseverance and virtuous intentions, you can achieve fulfillment.\n"
+            "Anticipate positive encounters and successful endeavors as you move forward.");
+            break;
+            case 25:
+            printf("Leaf Number Twenty-Five - Encoded Message\n"
+            "This leaf is like a small boat navigating through the vast ocean of life.\n"
+            "It suggests that there may be hidden messages or secrets, much like a coded language that needs to be deciphered.\n"
+            "Just as a storm must battle the wind and waves to cross the vast sea,\n"
+            "you may encounter challenges and obstacles that seem daunting and difficult to overcome.\n"
+            "However, perseverance and determination will ultimately lead to success.\n"
+            "When inquiring about journeys or travels, the response may be cryptic and require interpretation.\n"
+            "The path ahead may be unpredictable, so it is advisable to be flexible and adaptable in your plans.\n"
+            "In matters of health, it may be challenging for the sick to recover, \n"
+            "but with proper care and patience, improvement is possible.\n"
+            "When seeking guidance or asking about fortune, the response may be elusive or unclear.\n"
+            "In summary, Leaf Number Fifteen suggests that there may be hidden messages or challenges ahead.\n"
+            "Approach situations with resilience and adaptability, and you will find your way through the complexities of life.");
+            break;
+            case 26:
+            printf("Leaf Number Twenty-Six - Blossoming Flower\n"
+            "This leaf is reminiscent of a blossoming flower, signifying the proximity of joy and happiness.\n"
+            "Although moments of sorrow and hardship may arise, remember that relief and solace are also nearby.\n"
+            "True happiness often intertwines with acts of kindness and virtuous deeds.\n"
+            "It is essential to carry oneself with grace and dignity, avoiding arrogance and actions that may cause irritation to others.\n"
+            "Refrain from engaging in activities driven by pride or seeking to provoke conflicts, \n"
+            "as they may lead to regrets and future difficulties. Instead, focus on self-improvement and inner growth.\n"
+            "Much like planting a fruit tree, your efforts will yield bountiful rewards that others can enjoy without reservation.\n"
+            "When inquiring about an eagerly awaited child, it is likely to be a girl.\n"
+            "If seeking advice or questioning intentions, expect straightforward and honest responses.\n"
+            "When asking about someone who relies on you, they are likely to be distant, \n"
+            "and in matters of fortune, there will be no obstacles in your path.\n"
+            "In summary, Leaf Number Twenty-Six signifies the blossoming of happiness and reminds you to embrace kindness and virtuous deeds.\n"
+            "Avoid prideful actions and conflicts, and you will reap the fruits of your efforts without hindrance.");
+            break;
+            case 27:
+            printf("Leaf Number Twenty-Seven - Fulfillment and Contentment\n"
+            "This leaf signifies a sense of accomplishment and contentment, akin to a plant that flourishes before its time comes to an end.\n"
+            "It is as if you have nurtured the plant of your life with care, watering it with dew in the middle of the night, \n"
+            "causing every branch to burst forth with fresh leaves.\n"
+            "Much like a young maiden blossoming into womanhood, you are likely to find yourself in a state of fulfillment and lasting joy.\n"
+            "Your home will be filled with happiness and delight.\n"
+            "When seeking answers, this leaf suggests that there will be no obstacles or difficulties.\n"
+            "You will achieve success without struggle, and your endeavors will yield positive outcomes.\n"
+            "In matters of health, those who are unwell are expected to recover swiftly,\n"
+            "and those in need of support will find assistance readily available.\n"
+            "It is as if your benevolence has paved the way for meeting and encountering others.\n"
+            "In conclusion, Leaf Number Twenty-Seven symbolizes fulfillment and contentment in your life.\n"
+            "You are in a phase where your efforts bear abundant fruit, and you can expect smooth sailing without hurdles or challenges.");
+            break;
+            case 28:
+            printf("Leaf Number Twenty-Eight - Follow Your Intuition\n"
+            "This leaf suggests that you should trust your intuition and follow your own thoughts and beliefs.\n"
+            "It's like a song where your mind and heart are in harmony, and your actions are guided by your inner wisdom.\n"
+            "When looking ahead, the prospects are favorable, and your intuitive guidance will lead you to success.\n"
+            "You are likely to find yourself in a situation where your desires align with reality, and your wishes come true.\n"
+            "The energy of this leaf is akin to a tall mountain and deep waters, symbolizing strength and depth in your endeavors.\n"
+            "Just as the sun shines brightly, your life will be illuminated, and good people will be by your side, not far away.\n"
+            "When seeking answers, this leaf advises against asking about conflicts or disagreements, \n"
+            "as such questions may lead to negative outcomes.\n"
+            "If inquiring about someone in pain or suffering, you will receive a straightforward response, \n"
+            "indicating a heavy burden, much like the weight of a heavy heart.\n"
+            "Regarding fortune, this leaf foretells true goodness.\n"
+            "When inquiring about someone suitable for assistance, you will find support readily available, \n"
+            "and there will be people standing by your side.\n"
+            "In conclusion, Leaf Number Twenty-Eight encourages you to trust your intuition and follow your own path.\n"
+            "Good fortune and supportive people will be by your side, and your wishes are likely to come to fruition.");
+            break;
+        }
+}
+Date InputBirthday()
+{
+    Date birthday1;
+    printf("The day you were born >> ");
+    scanf("%d",&birthday1.day);
+    while(1)
+    {
+    printf("The month you were born >> ");
+    scanf("%s",birthday1.month);
+    int jan=strcmp(birthday1.month,"January");
+    int feb=strcmp(birthday1.month,"February");
+    int mar=strcmp(birthday1.month,"March");
+    int apr=strcmp(birthday1.month,"April");
+    int may=strcmp(birthday1.month,"May");
+    int jun=strcmp(birthday1.month,"June");
+    int jul=strcmp(birthday1.month,"July");
+    int aug=strcmp(birthday1.month,"August");
+    int sep=strcmp(birthday1.month,"September");
+    int oct=strcmp(birthday1.month,"October");
+    int nov=strcmp(birthday1.month,"November");
+    int dec=strcmp(birthday1.month,"December");
+    if(jan!=0&&feb!=0&&mar!=0&&apr!=0&&may!=0&&jun!=0&&jul!=0&&aug!=0&&sep!=0&&oct!=0&&nov!=0&&dec!=0)
+    {
+        printf("Invalid month! Please enter again\n");
+        continue;
+    }
+    else break;
+    }
+
+    printf("The year you were born >> ");
+    scanf("%d",&birthday1.year);
+    return birthday1;
+}
+
+Date FindZodiac(Date birthday1)
+{
+    int jan=strcmp(birthday1.month,"January");
+    int feb=strcmp(birthday1.month,"February");
+    int mar=strcmp(birthday1.month,"March");
+    int apr=strcmp(birthday1.month,"April");
+    int may=strcmp(birthday1.month,"May");
+    int jun=strcmp(birthday1.month,"June");
+    int jul=strcmp(birthday1.month,"July");
+    int aug=strcmp(birthday1.month,"August");
+    int sep=strcmp(birthday1.month,"September");
+    int oct=strcmp(birthday1.month,"October");
+    int nov=strcmp(birthday1.month,"November");
+    int dec=strcmp(birthday1.month,"December");
+    if(jan==0)
+    {
+        for(int i=1;i<=19;i++)
+        {
+            if(birthday1.day==i)
+            {
+              strcpy(birthday1.zodiac,"Capricorn");
+              break;
+            }
+        }
+        for(int i=20;i<=31;i++)
+        {
+            if(birthday1.day==i)
+            {
+                strcpy(birthday1.zodiac,"Aquarius");
+                break;
+            }
+        }
+    }
+    if(feb==0)
+    {
+        for(int i=1;i<=18;i++)
+        {
+            if(birthday1.day==i)
+            {
+                 strcpy(birthday1.zodiac,"Aquarius");
+                 break;
+            }
+        }
+        for(int i=19;i<=29;i++)
+        {
+             if(birthday1.day==i)
+            {
+                 strcpy(birthday1.zodiac,"Pisces");
+                 break;
+            }
+        }
+    }
+    if(mar==0)
+    {
+        for(int i=1;i<=20;i++)
+        {
+            if(birthday1.day==i)
+            {
+                 strcpy(birthday1.zodiac,"Pisces");
+                 break;
+            }
+        }
+        for(int i=21;i<=31;i++)
+        {
+             if(birthday1.day==i)
+            {
+                 strcpy(birthday1.zodiac,"Aries");
+                 break;
+            }
+        }
+    }
+    if(apr==0)
+    {
+        for(int i=1;i<=19;i++)
+        {
+            if(birthday1.day==i)
+            {
+                 strcpy(birthday1.zodiac,"Aries");
+                 break;
+            }
+        }
+        for(int i=20;i<=30;i++)
+        {
+             if(birthday1.day==i)
+            {
+                 strcpy(birthday1.zodiac,"Taurus");
+                 break;
+            }
+        }
+    }
+    if(may==0)
+    {
+        for(int i=1;i<=20;i++)
+        {
+            if(birthday1.day==i)
+            {
+                 strcpy(birthday1.zodiac,"Taurus");
+                 break;
+            }
+        }
+        for(int i=21;i<=31;i++)
+        {
+             if(birthday1.day==i)
+            {
+                 strcpy(birthday1.zodiac,"Gemini");
+                 break;
+            }
+        }
+    }
+    if(jun==0)
+    {
+        for(int i=1;i<=21;i++)
+        {
+            if(birthday1.day==i)
+            {
+                 strcpy(birthday1.zodiac,"Gemini");
+                 break;
+            }
+        }
+        for(int i=22;i<=30;i++)
+        {
+             if(birthday1.day==i)
+            {
+                 strcpy(birthday1.zodiac,"Cancer");
+                 break;
+            }
+        }
+    }
+    if(jul==0)
+    {
+        for(int i=1;i<=22;i++)
+        {
+            if(birthday1.day==i)
+            {
+                 strcpy(birthday1.zodiac,"Cancer");
+                 break;
+            }
+        }
+        for(int i=23;i<=31;i++)
+        {
+             if(birthday1.day==i)
+            {
+                 strcpy(birthday1.zodiac,"Leo");
+                 break;
+            }
+        }
+    }
+    if(aug==0)
+    {
+        for(int i=1;i<=22;i++)
+        {
+            if(birthday1.day==i)
+            {
+                 strcpy(birthday1.zodiac,"Leo");
+                 break;
+            }
+        }
+        for(int i=23;i<=31;i++)
+        {
+             if(birthday1.day==i)
+            {
+                 strcpy(birthday1.zodiac,"Virgo");
+                 break;
+            }
+        }
+    }
+    if(sep==0)
+    {
+        for(int i=1;i<=22;i++)
+        {
+            if(birthday1.day==i)
+            {
+                 strcpy(birthday1.zodiac,"Virgo");
+                 break;
+            }
+        }
+        for(int i=23;i<=30;i++)
+        {
+             if(birthday1.day==i)
+            {
+                 strcpy(birthday1.zodiac,"Libra");
+                 break;
+            }
+        }
+    }
+    if(oct==0)
+    {
+        for(int i=1;i<=22;i++)
+        {
+            if(birthday1.day==i)
+            {
+                 strcpy(birthday1.zodiac,"Libra");
+                 break;
+            }
+        }
+        for(int i=23;i<=31;i++)
+        {
+             if(birthday1.day==i)
+            {
+                 strcpy(birthday1.zodiac,"Scorpio");
+                 break;
+            }
+        }
+    }
+    if(nov==0)
+    {
+        for(int i=1;i<=21;i++)
+        {
+            if(birthday1.day==i)
+            {
+                 strcpy(birthday1.zodiac,"Scorpio");
+                 break;
+            }
+        }
+        for(int i=22;i<=30;i++)
+        {
+             if(birthday1.day==i)
+            {
+                 strcpy(birthday1.zodiac,"Sagittarius");
+                 break;
+            }
+        }
+    }
+    if(dec==0)
+    {
+        for(int i=1;i<=21;i++)
+        {
+            if(birthday1.day==i)
+            {
+                 strcpy(birthday1.zodiac,"Sagittarius");
+                 break;
+            }
+        }
+        for(int i=22;i<=31;i++)
+        {
+             if(birthday1.day==i)
+            {
+                 strcpy(birthday1.zodiac,"Capricorn");
+                 break;
+            }
+        }
+    }
+    return birthday1;
+}
+void PrintZodiac(Date birthday1)
+{
+     birthday1=FindZodiac(birthday1);
+    int cap=strcmp(birthday1.zodiac,"Capricorn");
+    int aqua=strcmp(birthday1.zodiac,"Aquarius");
+    int pis=strcmp(birthday1.zodiac,"Pisces");
+    int aries=strcmp(birthday1.zodiac,"Aries");
+    int tau=strcmp(birthday1.zodiac,"Taurus");
+    int gem=strcmp(birthday1.zodiac,"Gemini");
+    int can=strcmp(birthday1.zodiac,"Cancer");
+    int leo=strcmp(birthday1.zodiac,"Leo");
+    int vir=strcmp(birthday1.zodiac,"Virgo");
+    int lib=strcmp(birthday1.zodiac,"Libra");
+    int sco=strcmp(birthday1.zodiac,"Scorpio");
+    int sag=strcmp(birthday1.zodiac,"Sagittarius");
+    if(cap==0)
+    {
+        printf("Your zodiac sign is Capricorn....\n");
+        printf(" &&&&&&        &&&&&&                   \n");
+        printf("    .&&&     &&&  #&&&                  \n");
+        printf("      &&&   &&&    &&&                  \n");
+        printf("      &&&  &&&     &&&,                 \n");
+        printf("       &&&&&&       &&&                 \n");
+        printf("       &&&&&        &&&                 \n");
+        printf("        &&&&        &&&%     &&&&&&&,   \n");
+        printf("        &&&          &&&@@&&&       &&&@\n");
+        printf("        &&&          &&&&&&           &&\n");
+        printf("                      &&&&            &&\n");
+        printf("                      &&&&&          &&&\n");
+        printf("                    &&& @&&&&&&*&&&&&@@ \n");
+        printf("                    &&&                 \n");
+        printf("                  &&&&                  \n");
+        printf("            &&&&&&&&                    \n");
+    }
+    if(aqua==0)
+    {
+        printf("Your zodiac sign is Aquarius....\n");
+        printf("         &&&&&       &&&&&       &&&&&  \n");
+        printf("     &&&&&  &&&  &&&&&  &&&  &&&&&  &&& \n");
+        printf("@&&&&&       &&&&&       &&&&&       &&&\n");
+        printf("\n");
+        printf("\n");
+        printf("\n");
+        printf("          %&&         (&&         ,&&   \n");
+        printf("       &&&&&&&     &&&&&&&    &&&&&&&&  \n");
+        printf("   &&&&&    %&&&&&&&    &&&&&&&%    &&& \n");
+        printf(" &&&         .&&         %&&         &&&\n");
+    }
+     if(pis==0)
+    {
+        printf("Your zodiac sign is Pisces....\n");
+
+        printf(" %@@@@@                         @@@@@, \n");
+        printf("   &@@@@@                     @@@@@*   \n");
+        printf("     @@@@@*                 &@@@@@\n");
+        printf("      #@@@@@               @@@@@.    \n");
+        printf("       ,@@@@@             @@@@@   \n");
+        printf("        /@@@@@           @@@@@\n");
+        printf("         @@@@@          *@@@@&\n");
+        printf("         ,@@@@@         @@@@@\n");
+        printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+        printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+        printf("         .@@@@@         @@@@@\n");
+        printf("         @@@@@*         @@@@@#\n");
+        printf("         @@@@@           @@@@@\n");
+        printf("        @@@@@             @@@@@\n");
+        printf("       @@@@@               @@@@@\n");
+        printf("      @@@@@                 @@@@@\n");
+        printf("     @@@@@#                   @@@@@@\n");
+        printf("   &@@@@@                       @@@@@*\n");
+    }
+    if(aries==0)
+    {
+        printf("Your zodiac sign is Aries....\n");
+        printf("  @@@@@@@             @@@@@@@ \n");
+        printf("@@@     @@@         @@      @@ \n");
+        printf("@@        @@      @@@       *@@ \n");
+        printf("@@,        @@    @@@        @@\n");
+        printf(" @@*        @@   @@        @@(\n");
+        printf("            /@% @@   \n");
+        printf("             @@ @@ \n  ");
+        printf("             %@/@\n");
+        printf("              @@@ \n");
+        printf("              @@@ \n");
+        printf("              @@( \n");
+        printf("              @@/ \n");
+    }
+    if(tau==0)
+    {
+        printf("Your zodiac sign is Taurus....\n");
+        printf("    @@@@*                     &@@@@\n");
+        printf("       @@@                 @@@   \n");
+        printf("        @@@               @@@  \n");
+        printf("          @@@           @@@ \n");
+        printf("            @@@@@   @@@@@ \n");
+        printf("           @@@@@,   (@@@@&\n");
+        printf("         @@@             @@@\n");
+        printf("        @@@               @@@\n");
+        printf("        @@                 @@\n");
+        printf("        @@                @@@\n");
+        printf("         @@@             @@@ \n");
+        printf("          /@@@.       /@@@ \n");
+        printf("              @@@@@@@@@\n");
+    }
+    if(gem==0)
+    {
+        printf("Your zodiac sign is Gemini....\n");
+        printf("*                                      *\n");
+        printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+        printf("      ,#@@@@@@@@@@@@@@@@@@@@@@@(.  \n");
+        printf("         @@@@             @@@@  \n");
+        printf("         @@@@             @@@@  \n");
+        printf("         @@@@             @@@@ \n");
+        printf("         @@@@             @@@@ \n");
+        printf("         @@@@             @@@@ \n");
+        printf("         @@@@             @@@@ \n");
+        printf("         @@@@             @@@@  \n");
+        printf("         @@@@             @@@@  \n");
+        printf("         @@@@             @@@@ \n");
+        printf("         @@@@             @@@@ \n");
+        printf("         @@@@             @@@@ \n");
+        printf(" (@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*\n");
+        printf("@@@@@@                            ,@@@@@\n");
+    }
+    if(can==0)
+    {
+        printf("Your zodiac sign is Cancer....\n");
+        printf("             @@@@@@@@@@@@@@@@&  \n");
+        printf("      @@@@@@@@@@@%/,.,(&@@@@@@@@@@@@@@\n");
+        printf("   @@@@@@@@@@                       @@@@@\n");
+        printf(" @@@        @@@  \n");
+        printf("@@            @@ \n");
+        printf("@@            @@            @@@@@@@@@@\n");
+        printf("@@@          @@@          @@@        @@@\n");
+        printf("  @@@     /@@@           @@            @@\n");
+        printf("      @@@@               @@            @@\n");
+        printf("                         @@@          @@@\n");
+        printf(" @@                         @@@@    &@@@ \n");
+        printf(" @@@@@@@@@/                  *@@@@@@@  \n");
+        printf("       @@@@@@@@@@@@@@@@@@@@@@@@@  \n");
+    }
+    if(leo==0)
+    {
+        printf("Your zodiac sign is Leo....\n");
+        printf("                            /   \n");
+        printf("                      @@@@@@@@@@@@@ \n");
+        printf("                   @@@@@@        @@@@@ \n");
+        printf("                  @@@@             @@@@ \n");
+        printf("                 @@@@              @@@@ \n");
+        printf("                 @@@@@             @@@@ \n");
+        printf("                 @@@@@             @@@@ \n");
+        printf("             @@@@@@@@@@           @@@@\n");
+        printf("           @@@@@@  @@@@@         @@@@ \n");
+        printf("          @@@       @@@@      @@@@@ \n");
+        printf("          @@@@      @@@@     @@@@ \n");
+        printf("           @@@@@@@@@@@@     @@@@\n");
+        printf("             .@@@@@@       @@@@\n");
+        printf("                          @@@@\n");
+        printf("                           @@@@@.@@@@@\n");
+        printf("                             @@@@@@@@\n");
+    }
+    if(vir==0)
+    {
+        printf("Your zodiac sign is Virgo....\n");
+        printf(" &&&&&&&&&&\n");
+        printf("&&&&    &&&&&&&&&&&&&&&&&&&&\n");
+        printf("&&&     &&&&&   &&&&&&  .&&&&\n");
+        printf("        &&&&     &&&&     &&&&\n");
+        printf("        &&&&     &&&&     &&&&\n");
+        printf("        &&&&     &&&&     &&&&\n");
+        printf("        &&&&     &&&&     &&&&\n");
+        printf("        &&&&     &&&&     &&&&\n");
+        printf("        &&&&     &&&&     &&&&&&&&&&\n");
+        printf("        &&&&     &&&&     &&&&& &&&&&\n");
+        printf("        &&&&     &&&&     &&&&    &&&&\n");
+        printf("        &&&&     &&&&     &&&&&  &&&&\n");
+        printf("        &&&&     &&&&      &&&&&&&&&\n");
+        printf("        &&&&     &&&&      #&&&&&&&&\n");
+        printf("        &&&&     &&&&   &&&&&&& &&&&&&&\n");
+    }
+    if(lib==0)
+    {
+        printf("Your zodiac sign is Libra....\n");
+        printf("           @@@@@@@@@@@@ \n");
+        printf("         @@@@@       @@@@@\n");
+        printf("        @@@            @@@@ \n");
+        printf("       @@@.             @@@\n");
+        printf("       *@@@             @@@\n");
+        printf("         @@@           @@@ \n");
+        printf("%@@@@@@@@@@@@@       @@@@@@@@@@@@@\n");
+        printf("\n");
+        printf("\n");
+        printf("\n");
+        printf("%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n");
+    }
+    if(sco==0)
+    {
+        printf("Your zodiac sign is Scorpio....\n");
+        printf("             ,         .   \n");
+        printf(" .@@@#   @@@@@@@   @@@@@@@\n");
+        printf("   @@@# @@@ ,@@@& @@@ .@@@&\n");
+        printf("   @@@@@@.   @@@@@@.   @@@@\n");
+        printf("   @@@@@     @@@@@     @@@@\n");
+        printf("   @@@@      @@@@*     @@@@\n");
+        printf("   @@@@      @@@@      @@@@\n");
+        printf("   @@@@      @@@@      @@@@\n");
+        printf("   @@@@      @@@@      @@@@\n");
+        printf("   @@@@      @@@@      @@@@\n");
+        printf("   @@@@      @@@@      @@@@\n");
+        printf("   @@@@      @@@@      @@@@\n");
+        printf("   @@@@      @@@@      @@@@\n");
+        printf("   @@@@      @@@@      &@@@\n");
+        printf("                        @@@@      .@\n");
+        printf("                         @@@@@@@@@@@@@@\n");
+        printf("                            (@@@@@@@@@@\n");
+        printf("                                  .@\n");
+    }
+    if(sag==0)
+    {
+        printf("Your zodiac sign is Sagittarius....\n");
+        printf("                  @@@@@@@@@@@@@@@@@@@@@ \n");
+        printf("                  @@@@@@@@@@@@@@@@@@@@@ \n");
+        printf("                               @@@@@@@@ \n");
+        printf("                             @@@@   @@@ \n");
+        printf("                          &@@@@     @@@ \n");
+        printf("                        @@@@        @@@ \n");
+        printf("                     @@@@@          @@@ \n");
+        printf("                   @@@@             @@@\n");
+        printf("  @@@@          (@@@@               @@@\n");
+        printf("    @@@@.     @@@@,\n");
+        printf("      (@@@@,@@@@ \n");
+        printf("         @@@@( \n");
+        printf("       @@@@*@@@@\n");
+        printf("    @@@@(     @@@@/\n");
+        printf("  @@@@          ,@@@*\n");
+    }
+}
+void LoveLife(Date birthday1)
+{
+    birthday1=FindZodiac(birthday1);
+    PrintZodiac(birthday1);
+    int cap=strcmp(birthday1.zodiac,"Capricorn");
+    int aqua=strcmp(birthday1.zodiac,"Aquarius");
+    int pis=strcmp(birthday1.zodiac,"Pisces");
+    int aries=strcmp(birthday1.zodiac,"Aries");
+    int tau=strcmp(birthday1.zodiac,"Taurus");
+    int gem=strcmp(birthday1.zodiac,"Gemini");
+    int can=strcmp(birthday1.zodiac,"Cancer");
+    int leo=strcmp(birthday1.zodiac,"Leo");
+    int vir=strcmp(birthday1.zodiac,"Virgo");
+    int lib=strcmp(birthday1.zodiac,"Libra");
+    int scor=strcmp(birthday1.zodiac,"Scorpio");
+    int sag=strcmp(birthday1.zodiac,"Sagittarius");
+    printf("Here is your Love Life horoscope...\n\n");
+    if(cap==0)
+    {
+        printf("you will have plenty of opportunity for romantic adventures in love life of Capricorn 2024");
+        printf("since starting around the middle of April. \nIf you are currently in a committed and secure relationship,");
+        printf("this may be an excellent moment for you. \nYou may finally marry or be able to take your relationship to the next level.\n");
+    }
+    if(aqua==0)
+    {
+        printf("During the month of February, avoid things that you do not find right. Just follow your instincts.\n");
+        printf("Give time to your family that might help you out in resolving some family disputes.\n");
+        printf("The celestial movements may cause tension & stress as predicted by Aquarius love horoscope 2024. \n");
+        printf("Some family problems might leave you with unstable situations during the month of April. \nThe month is the right time to grow and gather some mental and physical strength.\n");
+        printf("Give yourself some time and space to absorb good vibes so that you can think over and take vital decisions related to your family and relationship.\n");
+    }
+     if(pis==0)
+    {
+        printf("The Pisces love horoscope this year says that couples will be all-in love and spend time with each other.\n");
+        printf("Even if you have a busy schedule, the 2024 planetary transits will be in your favor and help you regarding the same. \n");
+        printf("In the first quarter of 2024, you can plan some trips to build better connections and mend things with your special person.\n");
+        printf("If you have been into issues and problems lately, the yearly love horoscope foretells that people will see things getting better around the start itself.\n");
+        printf("Ahead, Pisces men and women who just started dating might feel a little left out. But, worry not as soon things will be better for you.\n");
+    }
+    if(aries==0)
+    {
+        printf("There will be happy and sad moments with your partner. \n");
+        printf("The first quarter of the year is predicted to be the toughest phase of the year for you love birds. Troubles and fights may crop up due to miscommunication.\n");
+        printf("You are required to discuss your emotions openly with your partner else you may face major issues later on. Show your affection towards your partner, it makes them feel valued and loved.\n");
+        printf("Though you never fail to express your love to your partner, yet you must remind your loved one that you love and cherish their presence in your life.\n");
+    }
+    if(tau==0)
+    {
+
+        printf("According to the love horoscope for Taurus, Avoid being swayed by negative comments and engage in good, direct dialogue. \n");
+        printf("For individuals who are seeking for relationship, December has something on the platter for them. Though marriage is on the cards, choose your partner wisely.\n");
+        printf("There may be minor cognitive disputes, which can cause tension in the partnership. Some of you may receive a romantic proposal from a coworker or an old acquaintance. \n");
+        printf("This month's midpoint might provide prosperity and peace of mind to people going through separation.\n");
+    }
+    if(gem==0)
+    {
+
+        printf("Individuals who haven't disclosed their love connection should take precautions since the interaction of siblings and parents may create hurdles...\n");
+        printf("This year will be favourable for individuals who wish to turn their romantic connection into a marriage.\n");
+        printf("Gemini love horoscope 2024 is likely to bring surprises in your life. The conjunction of planetary movements in your horoscope may bring unexpected marriage proposals.\n");
+        printf("Just avoid making snap decisions.\n");
+    }
+    if(can==0)
+    {
+
+        printf("When it comes to relationships, Cancer individuals need to think in a positive way\n");
+        printf("Every relationship requires time to grow. When it comes to family, spending quality time with loved ones may benefit your relationship and your family life.\n");
+        printf("Due to work pressure and unfavourable ideas, the first quarter may not give you proper results in terms of love and relationships. \n");
+        printf("Cancer horoscope suggests that you refrain from holding your spouse responsible for their errors and that you spend some time with them without arguing.\n");
+    }
+    if(leo==0)
+    {
+
+        printf("Your love life will be full of emotional ups and downs this year. \n");
+        printf("The beginning of the year will be the most wonderful time of your love life where everything will be good and peaceful. You will have the best time with your partner.\n");
+        printf("If you are looking for a partner or want to take your love relationship forward, then the beginning of the year is the perfect time for you. But things will not remain the same throughout the year.\n");
+        printf("After a while, things will finally change and you will have the same difficulties in your love life.\n");
+    }
+    if(vir==0)
+    {
+        printf("You have some very good opportunities in love and if already committed, you may find ample opportunities to strengthen your love and build a deeper emotional bond with your partner/spouse.\n");
+        printf("You are a loyal and dedicated person and in 2024, you will invest your time in maintaining the strong connection with your partner/spouse or establishing a strong bond with a new romantic interest.\n");
+        printf("If single, you will be blessed with a new person in your life, who will match your romantic expectations and understand your moods and emotions very closely. \n");
+        printf("This understanding will only get better with time, in the most natural way\n");
+    }
+    if(lib==0)
+    {
+        printf("You shall enjoy having a great time with your partner. Around the first quarter, people who wish to begin something new with their partner will be able to do so.\n");
+        printf("Natives will get opportunities to enjoy a nice and peaceful time with their partners.\n");
+        printf("The Libra love horoscope also says that people who wish to plan a soulful trip with their partner or go on vacation must do so as the planetary motions say that it will be great for your bond with them. \n");
+        printf("People who have been into some troubles with their partners. Well, the year is here to say that issues of all sorts are to get sorted in the first half of the New Year\n");
+    }
+    if(scor==0)
+    {
+        printf(" The beginning of the year will be full of joy, happiness and romance. You will be fully content throughout this year whether you are single or occupied.\n");
+        printf("Those who are single and looking for a fling, will get lucky in the mid of the year. Those who are in love with someone, will finally get to speak their feelings to their beloved.\n");
+        printf("Those who are in a relationship and thinking to take the next step will find the last quarter of the year suitable for their approach\n");
+    }
+    if(sag==0)
+    {
+        printf("Sagittarius love Horoscope foresees that this year you may play games as well as go through difficult situations in married and family life. \n");
+        printf("However around the end of the year, s you may have a positive approach but you might act impulsively at times that might cause problems.\n");
+        printf("Love Life advises you to go with the flow and avoid acting hastily. Sagittarius Relationship social activities might also help you in tough times.\n");
+    }
+}
+void HealthHoroscope(Date birthday1)
+{
+    birthday1=FindZodiac(birthday1);
+    PrintZodiac(birthday1);
+    int cap=strcmp(birthday1.zodiac,"Capricorn");
+    int aqua=strcmp(birthday1.zodiac,"Aquarius");
+    int pis=strcmp(birthday1.zodiac,"Pisces");
+    int aries=strcmp(birthday1.zodiac,"Aries");
+    int tau=strcmp(birthday1.zodiac,"Taurus");
+    int gem=strcmp(birthday1.zodiac,"Gemini");
+    int can=strcmp(birthday1.zodiac,"Cancer");
+    int leo=strcmp(birthday1.zodiac,"Leo");
+    int vir=strcmp(birthday1.zodiac,"Virgo");
+    int lib=strcmp(birthday1.zodiac,"Libra");
+    int scor=strcmp(birthday1.zodiac,"Scorpio");
+    int sag=strcmp(birthday1.zodiac,"Sagittarius");
+    printf("Here is your Health horoscope...\n\n");
+    if(cap==0)
+    {
+        printf("Are you a Capricorn who enjoys learning what your health horoscope for 2024 has in store? Then you should read this article. \n");
+        printf("As the new year gets underway, you might still be quite driven to increase your level of fitness, and your awareness might help you avoid being sick.\n");
+        printf("Mars warns against going to extremes on an emotional or physical level because there may be changes in your health status around the month of February.\n");
+    }
+    if(aqua==0)
+    {
+        printf("Are you 2024 Aquarius natives anticipating a health horoscope? \n");
+        printf("According to the horoscope, Aquarius people should experience moderate health during this time.Your health could benefit from the stars' influence at the start of the new year.\n");
+        printf("However, towards the end of January, you'll start to have some health concerns. Saturn suggests that you may be more susceptible to seasonal health issues because of a weakened immune system or low resilience.\n");
+    }
+     if(pis==0)
+    {
+        printf("Are you a native Pisces seeking a 2024 health horoscope? If so, you've found the proper site.Your health could be significantly improved by the planetary transits at the start of this year.\n");
+        printf("However, as the month goes on, the South Node may cause you to feel uneasy about your level of fitness and health. Your health may experience some changes around the month of February due to Mars.\n");
+        printf("But now, you'll be eager to increase your level of fitness. Your energy level will significantly improve as a result.\n");
+    }
+    if(aries==0)
+    {
+        printf("You have good energy, stamina and a positive attitude towards everything. \n");
+        printf("So, if there are any challenging health issues, it may be due to the workload and pressure. You may achieve life goals if you are in good health.\n");
+        printf("Aries health horoscope 2024 suggests that you should consume a good and healthy diet, follow proper sleep routine and workouts. \n");
+        printf("You may have strong influence from Saturn and Rahu and it demands a good lifestyle which may help you stay away from the ill effects.\n");
+    }
+    if(tau==0)
+    {
+        printf("Taurus health horoscope 2024 suggests that you may get good immunity against many infectious diseases in 2023. So do not worry much about your health.\n");
+        printf("But the only thing is that Jupiter has influence on making you fat due to improper diet and lifestyle. Also, Rahu transit makes you stressed more and it is suggested to avoid such crappy situations.\n");
+        printf("If your schedule is not proper, it makes you stressed more.\n");
+    }
+    if(gem==0)
+    {
+        printf("Gemini natives are generally leaders in anything that they do throughout their everyday lives. Their great uniqueness in taking up the difficulties is appreciable.\n");
+        printf("The Gemini health horoscope for 2024 recommends many tips for you to be in sound health. During this year, your health will be stable, but you will need to make some changes in your dietary plan to strengthen your immune system.\n");
+        printf("You will get clarity about how to improve your fitness levels.\n");
+    }
+    if(can==0)
+    {
+        printf("Do you have any idea how your health will be in 2024? In the beginning of this year, your immune system will remain highly efficient, so there will be no serious health issues this time around. If you are facing any chronic ailments, you will be relieved now.\n");
+        printf("Vitality will be improved gradually with rigorous and regular exercises and also with a good diet plan. But your health status will be fragile around the month of March\n");
+    }
+    if(leo==0)
+    {
+        printf("Your health may be good in 2024, according to the Leo health horoscope, as all of the planets will be in favorable positions. Your fitness may be somewhat impacted by Mars at the beginning of this month, which makes your health vulnerable.\n");
+        printf("Avoid stressful situations if you want to stay healthy. In addition to the potential for digestive issues, the influence of the North Node might cause unfavourable thoughts and worry in the month of February.\n");
+    }
+    if(vir==0)
+    {
+        printf("The 2024 Virgo health forecast predicts that Saturn will demand that you monitor your energy levels and practise the necessary discipline at the start of this year.\n");
+        printf("You can be a little lethargic and lack self-control when it comes to maintaining your health regimen. Overindulgence or irregular eating patterns may result in health problems.\n");
+    }
+    if(lib==0)
+    {
+        printf("Are you a Libra who likes hearing about your health in 2024? Everyone values their health very much. If our health is good, we are secure in every aspect. You'll be in good health at the start of this year. \n");
+        printf("You will now be able to address any health issues you may have and implement a remedy. Venus also suggests that you can experience good energy levels and a generally healthy state of being during this phase.\n");
+    }
+    if(scor==0)
+    {
+        printf("Health forecast for Scorpio According to 2024, this year's beginning will be favourable for your health, but the South Node's malefic energies could continue to cause a few minor health issues.\n");
+        printf("You will gradually experience improved health. Even if you still have plenty of energy, you might occasionally run into uncomfortable circumstances around the middle of February.\n");
+    }
+    if(sag==0)
+    {
+        printf("Are you a native Sagittarius? If so, you've come to the correct spot to find out more about the health forecast for Sagittarius in 2024.\n");
+        printf("According to the horoscope, as the year gets started, Jupiter may mostly stay in your favour, so you are likely to have a good health status.\n");
+        printf("However, you may need to pay more attention to your health because your low resistance or weak immune system may make you susceptible to some seasonal health issues around the end of January.\n");
+    }
+}
+void Career(Date birthday1)
+{
+    birthday1=FindZodiac(birthday1);
+    PrintZodiac(birthday1);
+    int cap=strcmp(birthday1.zodiac,"Capricorn");
+    int aqua=strcmp(birthday1.zodiac,"Aquarius");
+    int pis=strcmp(birthday1.zodiac,"Pisces");
+    int aries=strcmp(birthday1.zodiac,"Aries");
+    int tau=strcmp(birthday1.zodiac,"Taurus");
+    int gem=strcmp(birthday1.zodiac,"Gemini");
+    int can=strcmp(birthday1.zodiac,"Cancer");
+    int leo=strcmp(birthday1.zodiac,"Leo");
+    int vir=strcmp(birthday1.zodiac,"Virgo");
+    int lib=strcmp(birthday1.zodiac,"Libra");
+    int scor=strcmp(birthday1.zodiac,"Scorpio");
+    int sag=strcmp(birthday1.zodiac,"Sagittarius");
+    printf("Here is your Work and Career horoscope...\n\n");
+     if(cap==0)
+    {
+        printf("Career Horoscope 2024 predicts that your career will be prosperous this year. Saturn, the lord of your sign, is the lord of your second house, and it will be sitting in your second house and aspecting your eleventh house\n");
+        printf("While Jupiter will be completely aspecting your tenth house, so you will do well at work.\n");
+        printf("You will work hard and be able to live up to and improve on your work's standards. This will boost your confidence and make your speech more effective.\n");
+    }
+    if(aqua==0)
+    {
+        printf("According to Career Horoscope 2024, Saturn, sitting in your zodiac sign, will have a complete aspect on your third, seventh, and tenth houses at the beginning of the year.\n");
+        printf("With Saturn in the third house, you will have to put in a lot of work. Your coworkers will fully back you. You will be observed working hard and with all your heart.\n");
+        printf("Saturn's aspect on the tenth house will help you succeed in your endeavors. You will make every effort to contribute significantly to the job.\n");
+        printf("You will work hard and receive full compensation for your efforts, putting you in a solid position at work.\n");
+    }
+     if(pis==0)
+    {
+        printf("Career Horoscope 2024 predicts that the beginning of the year 2024 will be better for you than the previous year. \n");
+        printf("Mars and the Sun will be in your tenth house at the start of the year, bringing you tremendous success in your job. \n");
+        printf("You will do your task with zeal and will be able to reach your objectives. From January to March, you can receive an important position and have success at work.\n");
+        printf("You will establish a distinct identity in the field as a result of your efforts, and people will value your efforts. Your superiors will also look pleased with you.\n");
+    }
+    if(aries==0)
+    {
+        printf("This is a really good period for your work, according to Horoscope 2024.\n");
+        printf("Many changes will occur in the tourism industry, and these changes will be beneficial to your future.\n");
+        printf("As a result, your career will be more stable. During this period, you will be at the pinnacle of your profession.\n");
+        printf("The benefit of this is that your top officials and colleagues will respect you and cooperate with you.\n");
+        printf("You will have good success in the first half of the year. You will have many fantastic possibilities in the field, and those opportunities will benefit you in the future.\n");
+        printf("You will see the fruits of your hard work during this time period. For your outstanding performance at work between March and April, you may be eligible for a promotion or a salary increase.\n");
+    }
+    if(tau==0)
+    {
+        printf("According to a career Horoscope 2024, this time will be quite pleasant and promising for Taurus zodiac people, and will bring you fantastic job results.\n");
+        printf("During this time, you will be seen working hard in the office and receiving the full benefits of your hard work. Your efforts will be lauded by all. \n");
+        printf("When your seniors and coworkers notice your hard effort, they will praise you and give you their entire support.\n");
+        printf("During this time, you will be very serious about your career and will give it your all. If your firm is pleased with your performance, it may even send you abroad, which will help your career. \n");
+        printf("You will be promoted and may also receive a raise in salary or a bonus. Although there may be a short delay, there is no need to be concerned because the reward for patience is wonderful.\n");
+    }
+    if(gem==0)
+    {
+        printf("Speaking of the Gemini zodiac's career, during career horoscope 2024, you must avoid taking any shortcuts in your profession because they will be good for a short time but can be damaging in the long run.\n");
+        printf("You will get higher outcomes in the start of the year 2024. Will be able to do all tasks quickly. You will set a good example for others through your efforts. Everyone will be talking about your work. \n");
+        printf("During this moment, you will have the upper hand. You could earn a raise or a promotion between the end of March and the end of April. \n");
+        printf("On the other hand, following the month of May, you may have the opportunity to travel to another state or another country in connection with your employment, which may cause you to be more busy at work, but this business will benefit you and propel you to a higher level in your career.\n");
+    }
+    if(can==0)
+    {
+        printf("When it comes to your career, Career Horoscope 2024 predicts that the start of this year will be favorable. \n");
+        printf("You will have more work opportunities and a stronger position in the sector.\n");
+        printf("You will do your work with complete dedication, hard work, and efficiency, which will boost your standing on the job. \n");
+        printf("The transit of Jupiter in the eleventh house on May 1 will strengthen and improve your relationship with your superiors and colleagues, which will assist you at work. In your most trying circumstances, you will have the entire support of your seniors.\n");
+    }
+    if(leo==0)
+    {
+        printf("Your employment will strengthen you. During this time, you will work hard and get the full benefits of your efforts.\n");
+        printf("Mercury and Venus will be in your tenth house at the start of the year, which will result in much better job results. Jupiter will remain in your ninth house until May 1, offering opportunities for employment changes and transfers, which will be beneficial to your career.\n");
+        printf("If you work for the government, you may be transferred during the first two months of the year. Apart from that, if you work in the private sector and are looking for a new job, your wish can be granted during this period, i.e. in the first quarter of the year, and a job transfer is possible.\n");
+    }
+    if(vir==0)
+    {
+        printf("You will continue on the route of advancement in your profession. Your hard work will be everything to you, and you will have entire faith in your hard work and focus completely on your task, which will result in a good job.\n");
+        printf("The first part of the year will be fantastic for you, with several possibilities to demonstrate your abilities.\n");
+        printf("However, between March and April, the transit of Mars will be with Saturn in your sixth house, which can be hard for you, so you should be cautious since you could be the victim of a workplace conspiracy.\n");
+        printf("It is possible that your opponents or adversaries will pull a trick on you. In such a case, ignoring everything else, you must concentrate on your work.\n");
+    }
+    if(lib==0)
+    {
+        printf("According to Career Horoscope 2024, this year may present you with numerous fresh prospects. Jupiter will be in your seventh house and Saturn will be in your fifth house at the start of the year.\n");
+        printf("At the start of the year, the Sun and Mars will be in your third house, and as a result of Rahu's effect on your sixth house, you will be able to confront any difficulty, and this quality of yours will help you achieve success.\n");
+        printf("Whatever work you get in the field, you will be able to do well. Your superiors and colleagues will be seen praising you.\n");
+    }
+    if(scor==0)
+    {
+        printf("According to Career Horoscope 2024, you will have to work hard this year to achieve success in your career. You will want to stay in the area where you work, and you will benefit from this.\n");
+        printf("Although the planetary positions in between may encourage you to shift jobs, which you may do if the opportunity arises, Saturn, who will be in the fourth house throughout the year, will aspect your sixth and tenth houses, giving you stability in your employment. \n");
+        printf("You will feel trapped in your employment.\n");
+    }
+    if(sag==0)
+    {
+        printf("According to the Career Horoscope 2024, you will have the full support of your coworkers and will be able to accomplish well in your job as a result of their cooperation. \n");
+        printf("You will value the opinions of your coworkers. You should, however, proceed with caution. Do not disclose your personal belongings with anyone, as this can lead to serious problems in the future. \n");
+        printf("However, the last two months of the year 2024, November and December, will be quite beneficial to you.\n");
+    }
+}
+void Finance(Date birthday1)
+{
+    birthday1=FindZodiac(birthday1);
+    PrintZodiac(birthday1);
+    int cap=strcmp(birthday1.zodiac,"Capricorn");
+    int aqua=strcmp(birthday1.zodiac,"Aquarius");
+    int pis=strcmp(birthday1.zodiac,"Pisces");
+    int aries=strcmp(birthday1.zodiac,"Aries");
+    int tau=strcmp(birthday1.zodiac,"Taurus");
+    int gem=strcmp(birthday1.zodiac,"Gemini");
+    int can=strcmp(birthday1.zodiac,"Cancer");
+    int leo=strcmp(birthday1.zodiac,"Leo");
+    int vir=strcmp(birthday1.zodiac,"Virgo");
+    int lib=strcmp(birthday1.zodiac,"Libra");
+    int scor=strcmp(birthday1.zodiac,"Scorpio");
+    int sag=strcmp(birthday1.zodiac,"Sagittarius");
+    printf("Here is your Finance horoscope...\n\n");
+     if(cap==0)
+    {
+        printf("According to the Finance Horoscope 2024, the beginning of the year 2024 will be favorable. Mercury and Venus will be present in the eleventh house of your birth chart resulting in an increase in your income.\n");
+        printf("These planets will also make you financially stable. The presence of Saturn in the second house is situated in its native sign Aquarius will bend your mind towards saving your money which will result in savings and also prevent you from unnecessary spending.\n");
+        printf("However, Mars and Venus will be present in the twelfth house of your birth chart at the beginning of the year, which may induce an increase in your expenses and to control these expenses will not be in your control.\n");
+        printf("So you have to be extra cautious during this period and you should spend your money after careful thinking.\n");
+    }
+    if(aqua==0)
+    {
+        printf("According to the Finance Horoscope 2024, the year 2024 will prove to be auspicious in the financial front for the Aquarius natives.\n");
+        printf("In the beginning of the year, Mars and sun will be present in the eleventh house of your birth chart.\n");
+        printf("As a result, you will be able to create money from many sources which will strengthen your financial position. Aquarius natives can expect an interesting and transformative year in terms of finances in 2024.\n");
+        printf("This year presents opportunities for significant changes and breakthroughs in your financial situation.\n");
+        printf("Sometimes your financial decisions can astonish many people but you will stand with your decisions strongly and will move forward with them. \n");
+        printf("You will embrace innovative and unconventional approaches to money management and investment.\n");
+    }
+     if(pis==0)
+    {
+        printf("According to the Finance Horoscope 2024, this year the natives of Pisces will witness ups and downs.\n");
+        printf("In the year 2024, Saturn will be present in the twelfth House of your birth chart due to which you have to face some unforeseen expenses and the expenses will continue for the whole year. \n");
+        printf("So, you have to take steps and focus on improving your financial condition and you are advised to not to make any investments as it may result in losses.\n");
+        printf("Right management of finances at the right time and in the right way will help you in removing these problems.\n");
+        printf("The presence of Jupiter in the second house of your birth chart in the middle part of the year will give you a sigh of relief and will keep your financial situation under control.\n");
+        printf("However, you may face some challenges in the middle of the year and you will find it difficult to cope with it but there is no point of worry.\n");
+    }
+    if(aries==0)
+    {
+        printf("you are advised to keep control over your expenses because due to increasing expenses, you may have to take out a loan and your economic position may get disturbed.\n");
+        printf("According to the Finance Horoscope 2024, the middle part of the year 2024 will be very favorable for working professionals as there is a strong Yoga of your promotion and increase in income but you may witness a sudden increase in your expenses.\n");
+        printf("The natives involved in business will witness profits but you have to save a substantial part of your earnings and also have to think many times before spending your money.\n");
+        printf("If you invest in the stock market, then the months of August and October will be very good for investing.\n");
+        printf("In 2024, the months of January, February, April, June, August, and December will be fantastic for the natives associated with the government sector.\n");
+    }
+    if(tau==0)
+    {
+        printf("According to the Finance Horoscope 2024, this year will give you mixed results on the financial front. \n");
+        printf("You will witness financial gains, and fulfillment of your wishes, and you will be able to invest money due to the presence of Nodal Planet Rahu in the eleventh house of your birth chart. \n");
+        printf("The presence of Jupiter in the twelfth house and the lord of the ninth and tenth house Saturn will aspect on it, resulting in a high increase in your expenses.\n");
+        printf("However, the presence of Mars in the eighth house of your birth chart will make you receive hidden money.\n");
+        printf("The Finance Horoscope 2024 foretells that your expenses will decrease when Jupiter will transit in your Zodiac sign on the 01st of May 2024.\n");
+        printf("However, in some instances you have to spend some money on family work and other events. So, you have to make a good strategy and move forward.\n");
+    }
+    if(gem==0)
+    {
+        printf("According to the Finance Horoscope 2024, the lord of the ninth house Saturn will aspect on Jupiter which will be present in the eleventh house of your birth chart making this year suitable for finance and money for the natives of Gemini.\n");
+        printf("You will not have to stress about the matters of money as the flow of income will be continuous.\n");
+        printf("But, you have to be careful while spending money and you should make a budget and spend accordingly as there are chances of a sudden increase in expenses.\n");
+    }
+    if(can==0)
+    {
+        printf("You will need to be careful about your financial life in the year 2024 according to Finance horoscope 2024 as this year seems to be unfavorable.\n");
+        printf("You will need to manage and save your money this year 2024. You will need a financial advisor who will give you the right advice from time to time and will help you in becoming financially strong as the flow of income will be good but your expenses will also gain speed.\n");
+        printf("You will have to cut down your unnecessary expenses.\n");
+        printf("Overall, the year 2024 will bring mixed results on the financial front for the Cancer natives. If the flow of income will be steady, then your expenses will also increase.\n");
+        printf("You will need to create a balance between savings and expenditure wisely.\n");
+    }
+    if(leo==0)
+    {
+        printf("According to the Finance Horoscope 2024, The natives Of Leo zodiac have to be very careful because the position of planets may not go in your favor.\n");
+        printf("Your expenses will rise even if the flow of money continues. In this case, you have to make a plan for your finances and work according to it.\n");
+        printf("In the Year 2024, due to the presence of Ketu in the second house and presence of Rahu in the eighth house of your birth chart, you may be trapped in many kinds of expenses.\n");
+        printf("As a result, you may not be able to save money during this period.\n");
+    }
+    if(vir==0)
+    {
+        printf("According to the Finance Horoscope 2024, this year may bring ups and downs in the lives of Virgo natives with respect to the economic front.\n");
+        printf("You may have to struggle economically during this period. The presence of Ketu and Rahu in the First and the Seventh houses respectively of your birth chart will affect your financial position.\n");
+        printf("You may face a shortage of money to fulfill your needs. The presence of Planet Jupiter in the eighth house of your birth chart is not indicating auspiciousness and you need to be focused on your Financial management carefully.\n");
+        printf("However, Venus and Mercury will bring a ray of hope and will help you to reduce the economic risk that you are facing.\n");
+    }
+    if(lib==0)
+    {
+        printf("According to the Finance Horoscope 2024, 2024 is a year of financial stability and growth for Libra natives.\n");
+        printf("You'll find yourself in a favorable position, with opportunities for increased income and enhanced financial security.\n");
+        printf("Your ability to make balanced and informed decisions will play a crucial role in your financial success. \n");
+        printf("However, it is important to remain cautious and avoid impulsive investments or extravagant spending. \n");
+        printf("The natives should consider diversifying their portfolio and exploring new avenues of income. Collaborations and partnerships could prove beneficial, providing you with additional financial prospects. \n");
+        printf("Be mindful of your expenses and maintain a disciplined approach to budgeting.\n");
+    }
+    if(scor==0)
+    {
+        printf(" You will be able to complete the work which you were not able to accomplish last year due to shortage of funds.\n");
+        printf("However, due to the presence of Jupiter in the sixth house in the second half of the year will bring some challenges, it is important to exercise caution and prudence in your financial decisions. \n");
+        printf("Avoid impulsive investments or risky ventures that may lead to financial setbacks. Focus on building a strong financial foundation by paying off debts and reducing unnecessary expenses. \n");
+        printf("Due to the presence of Mars and Sun in the second house in the starting of the year may bring some economic challenges. \n");
+        printf("Keep a close eye on your budget and make efforts to save for the future.\n");
+    }
+    if(sag==0)
+    {
+        printf("According to the Finance Horoscope 2024, Sagittarius natives can expect an exciting and prosperous year in 2024 when it comes to their finances especially in the first half of the year.\n");
+        printf("Planet Jupiter will be present in the fifth house of your birth chart and it will aspect on the first house, eleventh house, and birth house. As a result, opportunities for financial growth and abundance are on the horizon.\n");
+        printf("Your adventurous spirit and willingness to take calculated risks can lead to lucrative investments and business ventures.\n");
+        printf("However, when Jupiter enters the sixth house of your birth chart in May 2024, your expenses will increase and make you financially weak. It is important to exercise caution and conduct thorough research before making any major financial decisions\n");
+    }
+}
+void table(){
+
+    printf("|1|2|3|4|5|6|7|8|9|\n");
+    printf("| | | | | | | | | |     \n");
+    printf("|A|B|C|D|E|F|G|H|I|\n");
+    printf("|J|K|L|M|N|O|P|Q|R|\n");
+    printf("|S|T|U|V|W|X|Y|Z| |\n");
+
+}
+
+
+
+void full_name(char name[100]) {
+     int nameNumber[100];
+     int index = 0;
+     int i;
+
+
+
+
+     printf("\n************************************************************************************************************");
+     printf("\nName Number is derived from all of the letters of your full name at birth:\n");
+     for(i=0;name[i];i++){
+         if(name[i] == 'A'|| name[i] == 'B'|| name[i] =='C'|| name[i] =='D'|| name[i] == 'E'||
+            name[i] =='F'|| name[i] =='G'|| name[i] =='H'|| name[i] =='I'|| name[i] =='J'||
+            name[i] =='K'|| name[i] =='L'|| name[i] =='M'|| name[i] =='N'|| name[i] =='O'||
+            name[i] =='P'|| name[i] =='Q'|| name[i] =='R'|| name[i] =='S'|| name[i] =='T'||
+            name[i] =='U'|| name[i] =='V'|| name[i] =='W'|| name[i] =='X'|| name[i] =='Y'||
+            name[i] =='Z'|| name[i] =='a'|| name[i] =='b'|| name[i] =='c'|| name[i] =='d'||
+            name[i] =='e'|| name[i] =='f'|| name[i] =='g'|| name[i] =='h'|| name[i] =='i'||
+            name[i] =='j'|| name[i] =='k'|| name[i] =='l'|| name[i] =='m'|| name[i] =='n'||
+            name[i] =='o'|| name[i] =='p'|| name[i] =='q'|| name[i] =='r'|| name[i] =='s'||
+            name[i] =='t'|| name[i] =='u'|| name[i] =='v'|| name[i] =='w'|| name[i] =='x'||
+            name[i] =='y'|| name[i] =='z' )
+         printf("%c",name[i]);
+
+     }
+
+     printf(" = ");
+
+    for (int i = 0; name[i] != '\0'; i++) {
+
+        switch(name[i]) {
+            case 'A': case 'J': case 'S': case 'a': case 'j': case 's':
+                nameNumber[index] = 1;
+                index++;
+                break;
+            case 'B': case 'K': case 'T': case 'b': case 'k': case 't':
+                nameNumber[index] = 2;
+                index++;
+                break;
+            case 'C': case 'L': case 'U': case 'c': case 'l': case 'u':
+                nameNumber[index] = 3;
+                index++;
+                break;
+            case 'D': case 'M': case 'V': case 'd': case 'm': case 'v':
+                nameNumber[index] = 4;
+                index++;
+                break;
+            case 'E': case 'N': case 'W': case 'e': case 'n': case 'w':
+                nameNumber[index] = 5;
+                index++;
+                break;
+            case 'F': case 'O': case 'X': case 'f': case 'o': case 'x':
+                nameNumber[index] = 6;
+                index++;
+                break;
+            case 'G': case 'P': case 'Y': case 'g': case 'p': case 'y':
+                nameNumber[index] = 7;
+                index++;
+                break;
+            case 'H': case 'Q': case 'Z': case 'h': case 'q': case 'z':
+                nameNumber[index] = 8;
+                index++;
+                break;
+            case 'I': case 'R': case 'i': case 'r':
+                nameNumber[index] = 9;
+                index++;
+                break;
+            default:
+
+                break;
+        }
+    }
+    //nameNumber[7 9 2 8 3 _]
+    int total = 0;
+    for (int i = 0; i < index; i++) {
+        total += nameNumber[i];
+        printf("%d", nameNumber[i]);
+        if (i + 1 == index) printf(" = ");
+        else printf(" + ");
+    }
+
+    while (total > 9) {
+        int sum = 0;
+        int originalNumber = total;
+
+
+        printf("%d = ", originalNumber);
+
+        while (total != 0) {
+
+            printf("%d", total % 10);
+
+
+            if (total / 10 != 0) {
+                printf(" + ");
+            }
+
+            sum += total % 10;
+            total /= 10;
+        }
+
+        total = sum;
+        printf(" = ");
+
+    }
+printf("%d\n", total);
+
+printf("\nDescribes our character and inner strength.\n");
+
+        if(total == 1) printf("1: Resourcefulness, nervous tension.");
+        else if(total == 2) printf("2: Kindness, sensitivity, gentleness.");
+        else if(total == 3) printf("3: Dexterity, adaptability.");
+        else if(total == 4) printf("4: Responsibility, organizational talent.");
+        else if(total == 5) printf("5: Smartness, curiosity, willingness to accept changes.");
+        else if(total == 6) printf("6: Tenderness, harmony, balance.");
+        else if(total == 7) printf("7: Intuition, desire to have secrets.");
+        else if(total == 8) printf("8: Energy, moderation.");
+        else if(total == 9) printf("9: Emotionality, loyalty.");
+
+
+}
+
+//***********************************************************************************************
+
+void vowel(char name[100]) {
+     int nameNumber[100];
+     int index = 0;
+     int i;
+
+     printf("\n************************************************************************************************************");
+     printf("\nSoul urge number is derived from the vowels of your full name at birth:\n");
+     for(i=0;name[i] != '\0';i++){
+         if(name[i] == 'A'|| name[i] == 'E'|| name[i] == 'I'|| name[i] == 'O'|| name[i] == 'U'||
+            name[i] == 'a'|| name[i] == 'e'|| name[i] == 'i'|| name[i] == 'o'|| name[i] == 'u')
+         printf("%c",name[i]);
+
+     }
+     printf(" = ");
+
+    for (int i = 0; name[i] != '\0'; i++) {
+
+        switch(name[i]) {
+            case 'A': case 'a':
+                nameNumber[index] = 1;
+                index++;
+                break;
+            case 'U': case 'u':
+                nameNumber[index] = 3;
+                index++;
+                break;
+            case 'E': case 'e':
+                nameNumber[index] = 5;
+                index++;
+                break;
+            case 'O': case 'o':
+                nameNumber[index] = 6;
+                index++;
+                break;
+            case 'I': case 'i':
+                nameNumber[index] = 9;
+                index++;
+                break;
+            default:
+
+                break;
+        }
+    }
+
+    int total = 0;
+    for (int i = 0; i < index; i++) {
+        total += nameNumber[i];
+        printf("%d", nameNumber[i]);
+        if (i + 1 == index) printf(" = ");
+        else printf(" + ");
+    }
+    while (total > 9) {
+        int sum = 0;
+        int originalNumber = total;
+
+
+        printf("%d = ", originalNumber);
+
+        while (total != 0) {
+
+            printf("%d", total % 10);
+
+
+            if (total / 10 != 0) {
+                printf(" + ");
+            }
+
+            sum += total % 10;
+            total /= 10;
+        }
+
+        total = sum;
+        printf(" = ");
+
+    }
+printf("%d\n", total);
+
+printf("\nDescribes our inner ideals and hidden desires.\n");
+
+        if(total ==1) printf("1: The desire to succeed, be above average and for controling own destiny.");
+        else if(total ==2) printf("2: The desire for love, emotions, friendship, connection and sharing with others.");
+        else if(total ==3) printf("3: The desire for creativity, independence and connection with others.");
+        else if(total ==4) printf("4: The desire for stability, order, responsibility and stable background.");
+        else if(total ==5) printf("5: The desire for freedom, travel, expanding horizons and changes.");
+        else if(total ==6) printf("6: The desire for peace, harmony and balance.");
+        else if(total ==7) printf("7: The desire for a rich inner life, even at the price of loneliness and isolation.");
+        else if(total ==8) printf("8: The desire to succeed, especially in a practical, yet unusual activity.");
+        else if(total ==9) printf("9: The desire for adventures, ideals and doing useful things.");
+
+
+}
+
+//***********************************************************************************************
+
+void consonants(char name[100]) {
+     int nameNumber[100];
+     int index = 0;
+     int i;
+
+     printf("\n************************************************************************************************************");
+     printf("\nPersonality number is derived from the consonants of your full name at birth.\n");
+     for(i=0;name[i];i++){
+         if(name[i] == 'B'|| name[i] =='C'|| name[i] =='D'||name[i] =='F'|| name[i] =='G'||
+            name[i] =='H'|| name[i] =='J'|| name[i] =='K'|| name[i] =='L'|| name[i] =='M'||
+            name[i] =='N'|| name[i] =='P'|| name[i] =='Q'|| name[i] =='R'|| name[i] =='S'||
+            name[i] =='T'|| name[i] =='V'|| name[i] =='W'|| name[i] =='X'|| name[i] =='Y'||
+            name[i] =='Z'|| name[i] =='b'|| name[i] =='c'|| name[i] =='d'|| name[i] =='f'||
+            name[i] =='g'|| name[i] =='h'|| name[i] =='j'|| name[i] =='k'|| name[i] =='l'||
+            name[i] =='m'|| name[i] =='n'|| name[i] =='p'|| name[i] =='q'|| name[i] =='r'||
+            name[i] =='s'|| name[i] =='t'|| name[i] =='v'|| name[i] =='w'|| name[i] =='x'||
+            name[i] =='y'|| name[i] =='z' )
+         printf("%c",name[i]);
+
+     }
+     printf(" = ");
+
+    for (int i = 0; name[i] != '\0'; i++) {
+
+        switch(name[i]) {
+            case 'J': case 'S': case 'j': case 's':
+                nameNumber[index] = 1;
+                index++;
+                break;
+            case 'B': case 'K': case 'T': case 'b': case 'k': case 't':
+                nameNumber[index] = 2;
+                index++;
+                break;
+            case 'C': case 'L': case 'c': case 'l':
+                nameNumber[index] = 3;
+                index++;
+                break;
+            case 'D': case 'M': case 'V': case 'd': case 'm': case 'v':
+                nameNumber[index] = 4;
+                index++;
+                break;
+            case 'N': case 'W': case 'n': case 'w':
+                nameNumber[index] = 5;
+                index++;
+                break;
+            case 'F': case 'X': case 'f': case 'x':
+                nameNumber[index] = 6;
+                index++;
+                break;
+            case 'G': case 'P': case 'Y': case 'g': case 'p': case 'y':
+                nameNumber[index] = 7;
+                index++;
+                break;
+            case 'H': case 'Q': case 'Z': case 'h': case 'q': case 'z':
+                nameNumber[index] = 8;
+                index++;
+                break;
+            case 'R': case 'r':
+                nameNumber[index] = 9;
+                index++;
+                break;
+            default:
+
+                break;
+        }
+    }
+
+    int total = 0;
+    for (int i = 0; i < index; i++) {
+        total += nameNumber[i];
+        printf("%d", nameNumber[i]);
+        if (i + 1 == index) printf(" = ");
+        else printf(" + ");
+    }
+    while (total > 9) {
+        int sum = 0;
+        int originalNumber = total;
+
+
+        printf("%d = ", originalNumber);
+
+        while (total != 0) {
+
+            printf("%d", total % 10);
+
+
+            if (total / 10 != 0) {
+                printf(" + ");
+            }
+
+            sum += total % 10;
+            total /= 10;
+        }
+
+        total = sum;
+        printf(" = ");
+
+    }
+printf("%d\n", total);
+
+printf("\nDescribes the real value of our character.\n");
+
+        if(total==1) printf("1: Trying to be useful, make decisions and lead others.");
+        else if(total==2) printf("2: Solidarity, a sense of teamwork.");
+        else if(total==3) printf("3: Success through cooperation with others.");
+        else if(total==4) printf("4: Success through own efforts and patience.");
+        else if(total==5) printf("5: Constant movement, a lot of experience.");
+        else if(total==6) printf("6: Interest in the opinions of others, success is possible in art.");
+        else if(total==7) printf("7: Good imagination in overcoming obstacles.");
+        else if(total==8) printf("8: Plenty of energy, sincerity and authority.");
+        else if(total==9) printf("9: Ideals, desire for self-fulfillment through working for others.");
+
+    printf("\n************************************************************************************************************");
+}
+void card_menu (){
+     int i,j;
+//heart
+ for(int i = 7;i>-7;i--){
+    for(int j = -13;j<13;j++){
+        float x=j/size/2;
+        float y=i/size;
+        float leftSide = x*x + y*y -1;
+        leftSide = leftSide*leftSide*leftSide;
+        float rightSide = y*y*y*x*x;
+        printf("%c",leftSide<=rightSide? '*':' ');
+    }
+    printf("\n");
+}
+//triangle
+for (int i=1;i<=2*size;i++) {
+        for(int j=1;j<=2;j++)
+        {
+            printf(" ");
+        }
+        for (int j=2*size-i;j>=0;j--) printf(" ");
+        for (int j=1;j<=i;j++) printf("%2s","**");
+    printf("\n");
+}
+printf("\n");
+//square
+ for (i=0; i<2*size;i++) {
+        for(int j=1;j<=3;j++)
+        {
+            printf(" ");
+        }
+    for (j=0;j<size*4;j++) {
+
+        printf ("*");
+    }
+
+    printf ("\n");
+
+}
+printf ("\n");
+//diamond
+    for (i=1;i<=2*size;i++) {
+    for(int j=1;j<=2;j++)
+        {
+            printf(" ");
+        }
+        for (j=2*size-i;j>=0;j--) printf(" ");
+        for (j=1;j<=i;j++) printf("%2s","**");
+    printf("\n");
+
+
+    }
+
+     for (i=2*size;i>=1;i--) {
+        for(int j=1;j<=2;j++)
+        {
+            printf(" ");
+        }
+        for (j=2*size-i;j>=0;j--) printf(" ");
+        for (j=1;j<=i;j++) printf("%2s","**");
+    printf("\n");
+
+
+    }
+    printf("\n");
+    //circle
+     for(int i=-radius/2; i<=radius/2;i++){
+
+            for(int j=-radius; j<=radius;j++)
+            if(i*i*4+j*j<radius* radius) printf("*");
+                else printf(" ");
+
+            printf("\n");
+        }
+        printf("\n");
+//arrow
+for(int i=1;i<=size;i++)
+    {
+        for(int j=1;j<=2;j++)
+        {
+            printf(" ");
+        }
+        for(int j=1;j<=2*size;j++)
+        {
+
+            printf(" ");
+
+        }
+        for(int j=1;j<=i;j++)
+        {
+
+            printf("*");
+
+        }
+        printf("\n");
+    }
+    for(int i=1;i<=size;i++)
+    {
+        for(int j=1;j<=2;j++)
+        {
+            printf(" ");
+        }
+        for(int j=1;j<=3*size;j++)
+        {
+
+            printf("*");
+
+        }
+        for(int k=1;k<=i;k++)
+        {
+
+            printf("*");
+
+        }
+        printf("\n");
+    }
+       for(int i=1;i<=size;i++)
+    {
+        for(int j=1;j<=2;j++)
+        {
+            printf(" ");
+        }
+        for(int j=1;j<=3*size;j++)
+        {
+
+            printf("*");
+
+        }
+         for(int k=size;k>=i;k--)
+        {
+
+            printf("*");
+
+        }
+        printf("\n");
+    }
+    for(int i=1;i<=size;i++)
+    {
+        for(int j=1;j<=2;j++)
+        {
+            printf(" ");
+        }
+        for(int j=1;j<=2*size;j++)
+        {
+
+            printf(" ");
+
+        }
+         for(int k=size;k>=i;k--)
+        {
+
+            printf("*");
+
+        }
+        printf("\n");
+    }
+    printf("\n");
+//plus
+    for (int i = 1; i <= 18; i++) {
+             for(int j=1;j<=4;j++)
+        {
+            printf(" ");
+        }
+        for (int j = 1; j <= 18; j++) {
+
+            if (i == 18 / 2 + 1 || i== 18/2 +2 ||i==18/2 || i==18/2-1 || i==18/2-2 ||
+                j == 18 / 2 + 1 || j==18/2+2 || j==18/2+3 || j==18/2 || j==18/2-1 || j== 18/2-2 || j==18/2-3) {
+                printf("*");
+            }
+
+            else {
+                printf(" ");
+            }
+        }
+
+        printf("\n");
+    }
+    printf("\n");
+//hexagon
+    for(int i=1;i<=SIZE/2;i++)
+    {
+        for(int j=1;j<=2;j++)
+        {
+            printf(" ");
+        }
+        for(int j=SIZE/2;j>=i;j--)
+        {
+            printf(" ");
+        }
+        for(int j=1;j<=i;j++)
+        {
+            printf("*");
+        }
+        for(int j=1;j<=6;j++)
+        {
+            printf("*");
+        }
+         for(int j=1;j<=i;j++)
+        {
+            printf("*");
+        }
+        printf("\n");
+
+    }
+
+
+    for(int i=1;i<=SIZE/2;i++)
+    {
+        for(int j=1;j<=2;j++)
+        {
+            printf(" ");
+        }
+        for(int j=1;j<=i;j++)
+        {
+            printf(" ");
+        }
+        for(int j=SIZE/2;j>=i;j--)
+        {
+            printf("*");
+        }
+        for(int j=1;j<=6;j++)
+        {
+            printf("*");
+        }
+         for(int j=SIZE/2;j>=i;j--)
+        {
+            printf("*");
+        }
+
+        printf("\n");
+    }
+    printf("\n");
+
+//octagon
+    for (i = 0; i < size; i++) {
+            for(int j=1;j<=5;j++)
+        {
+            printf(" ");
+        }
+        for (j = 0; j < size - i; j++) {
+            printf(" ");
+        }
+        for (j = 0; j < size + 2 * i; j++) {
+            printf("*");
+        }
+        printf("\n");
+    }
+
+    // Middle part of the octagon
+    for (i = 0; i < size; i++) {
+            for(int j=1;j<=5;j++)
+        {
+            printf(" ");
+        }
+        for (j = 0; j < 3 * size; j++) {
+            printf("*");
+        }
+        printf("\n");
+    }
+
+    // Lower part of the octagon
+    for (i = 0; i < size; i++) {
+            for(int j=1;j<=5;j++)
+        {
+            printf(" ");
+        }
+        for (j = 0; j <= i; j++) {
+            printf(" ");
+        }
+        for (j = 0; j < 3 * size - 2 * (i + 1); j++) {
+            printf("*");
+        }
+        printf("\n");
+    }
+    printf("\n");
+
+}
+
+
